@@ -1,4 +1,4 @@
-## Lab 01. Detailed Install PowerShell & VSCode
+## Lab 01. Detailed - Install PowerShell & VSCode
 
 - **If Windows**
     - Check your currently installed Windows PowerShell version by running `$PSVersionTable` in your Windows PowerShell console
