@@ -8,3 +8,11 @@ Kursen har inga förkunskapskrav i PowerShell men är tänkt att vara nyttig fö
 
 ---
 ![https://www.advania.se](https://www.advania.se/library/Template/logo_o.png)
+
+---
+
+## More Reading
+- [PowerShell Documentation](https://docs.microsoft.com/en-us/powershell/)
+- [PSKoans](https://github.com/vexx32/PSKoans)
+- [Community Best Practices](https://github.com/PoshCode/PowerShellPracticeAndStyle)
+- Book: Learn PowerShell in a Month of Lunches, Linux and macOS Edition
