@@ -1,3 +1,12 @@
 ## Lab 02. Running Commands
 
-Get-Childitem, try it with different parameters, in different folders etc.
+Try running some different commands in the PowerShell console.
+
+See if you can find some common parameters in different commands, and how they can be used.
+
+Some examples of commands to explore:
+
+- Get-Help
+- Get-ChildItem
+- Get-Command
+- Get-Verb
