@@ -120,7 +120,7 @@ $MyProcess = Get-Process -Name Notepad
 # Examine possible methods that can stop a process
 Get-Member -InputObject $MyProcess
 
-# You can either all the kill method
+# You can either call the kill method
 $MyProcess.kill()
 
 # Or the CloseMainWindow method
