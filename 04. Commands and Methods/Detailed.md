@@ -130,3 +130,9 @@ $MyProcess.CloseMainWindow()
 *tip*: While the Close method on a process might seem logic at first, this method is actually used to free resources after a process has exited.
 
 ---
+
+*Get-Help*
+
+```Powershell
+
+```

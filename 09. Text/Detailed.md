@@ -67,3 +67,9 @@ The string is found in the HARBOTPSKS.txt file.
 *hint!* Use Get-ChildItem -Recurse to search through large subfolderstructures after content
 
 ---
+
+*Get-Help*
+
+```Powershell
+about_Regular_Expressions
+```
