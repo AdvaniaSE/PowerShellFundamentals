@@ -19,3 +19,11 @@ Some examples of usefull commands to explore:
 - Get-ChildItem
 - Get-Command
 - Get-Verb
+
+---
+
+*Get-Help*
+
+```Powershell
+
+```

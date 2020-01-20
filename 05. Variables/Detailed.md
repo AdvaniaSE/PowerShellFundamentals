@@ -88,3 +88,9 @@ Get-Process -OutVariable MyVar
 ```
 
 ---
+
+*Get-Help*
+
+```Powershell
+
+```

@@ -33,3 +33,9 @@ Get-Service | Where-Object -Property Status -EQ -Value 'Running' | Sort-Object -
 ```
 
 ---
+
+*Get-Help*
+
+```Powershell
+Get-Help about_Pipelines
+```

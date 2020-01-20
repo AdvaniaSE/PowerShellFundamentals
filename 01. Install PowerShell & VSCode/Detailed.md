@@ -6,3 +6,11 @@
 - Install [Visual Studio Code](http://aka.ms/vscode)
     - Install PowerShell Extension for VSCode
 - Find out your current Execution Policy by running `Get-ExecutionPolicy -List` and looking at the highest policy that is not `Undefined`
+
+---
+
+*Get-Help*
+
+```Powershell
+
+```

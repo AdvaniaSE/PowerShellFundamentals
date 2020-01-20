@@ -74,3 +74,9 @@ This behaviour is because Write-Host outputs data to the information stream, whi
 Write-Output outputs its result to the output stream, which in our case above is directed to the variable.
 
 ---
+
+*Get-Help*
+
+```Powershell
+
+```
