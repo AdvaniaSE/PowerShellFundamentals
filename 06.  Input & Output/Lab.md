@@ -6,4 +6,5 @@
 - Run a non working command "ThisCommandIsNotFound".
     - Explore the error message
     - Change ErrorActionPreference to "SilentlyContinue" and try again.
+    - Restore the ErrorActionPreference to its default setting
 - Try using both Write-Host and Write-Output and saving the results to a variable. What is the difference? Why does it happen?
