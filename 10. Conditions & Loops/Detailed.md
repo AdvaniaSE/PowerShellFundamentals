@@ -41,15 +41,32 @@ while ($i -le 10) {
   - Tuesday-Thursday: Just another $_
   - Friday-Sunday: Weekend wohoo!
 
-- Rewrite the test to loop throug each weekday
+```Powershell
+$Today = Get-Date | Select-Object -ExpandProperty DayOfWeek
+switch ($Today) {
+    'Monday' { 'I miss weekends' }
+    'Tuesday' { 'Just another $_' }
+    'Wednesday' { 'Just another $_' }
+    'Thursday' { 'Just another $_' }
+    'Friday' { 'Weekend wohoo!' }
+    'Saturday' { 'Weekend wohoo!' }
+    'Sunday' { 'Weekend wohoo!' }
+}
+```
+
+- Rewrite the test to loop through each weekday
 
 ```Powershell
-switch (0..6 | Foreach-Object -Process { (Get-Date).AddDays($_).DayOfWeek }) {
-    'Monday'                   { 'Monday nooo' }
-    { $_ -gt 1 -and $_ -lt 5 } { "Just another $_" }
-    'Friday'                   { "$_ Weekend wohoo!" }
-    { $_ -match '^s.*' }       { "It's weekend!" }
-    Default {}
+# This example includes many different ways of comparing strings in a switch statement
+$OneWeek = 0..6 | Foreach-Object -Process { (Get-Date).AddDays($_).DayOfWeek }
+
+# If the switch input is an Array, it will automaticaly loop through each object in the Array.
+
+switch ($OneWeek) {
+    'Monday' { 'I miss weekends' } # String comparison
+    { $_ -gt 1 -and $_ -lt 5 } { "Just another $_" } # DayOfWeek can also be counted using numbers
+    'Friday' { "$_ Weekend wohoo!" }
+    { $_ -match '^s.*' } { "It's weekend!" } # Regex comparison
 }
 ```
 
