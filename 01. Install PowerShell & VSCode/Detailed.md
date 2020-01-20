@@ -11,6 +11,4 @@
 
 *Get-Help*
 
-```Powershell
-
-```
+[about_PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview)
