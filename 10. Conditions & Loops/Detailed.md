@@ -57,7 +57,7 @@ switch ($Today) {
 - Rewrite the test to loop through each weekday
 
 ```Powershell
-# This example includes many different ways of comparing strings in a switch statement
+# This example includes different ways of comparing strings in a switch statement
 $OneWeek = 0..6 | Foreach-Object -Process { (Get-Date).AddDays($_).DayOfWeek }
 
 # If the switch input is an Array, it will automaticaly loop through each object in the Array.

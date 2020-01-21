@@ -71,5 +71,7 @@ The string is found in the HARBOTPSKS.txt file.
 *Get-Help*
 
 ```Powershell
-about_Regular_Expressions
+Get-Help about_Quoting_Rules
+Get-Help about_comparison_operators
+Get-Help about_Regular_Expressions
 ```

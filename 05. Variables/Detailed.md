@@ -92,5 +92,7 @@ Get-Process -OutVariable MyVar
 *Get-Help*
 
 ```Powershell
-
+Get-Help about_Automatic_Variables
+Get-Help about_Environment_Variables
+Get-Help about_Varviables
 ```

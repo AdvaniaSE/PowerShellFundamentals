@@ -9,5 +9,7 @@
 *Get-Help*
 
 ```Powershell
-
+Get-Help about_Providers
+Get-Help about_*Provider
+Get-Help about_Core_Commands
 ```
