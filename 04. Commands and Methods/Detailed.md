@@ -131,7 +131,7 @@ $MyProcess.CloseMainWindow()
 
 ---
 
-*Get-Help*
+*More Reading*
 
 ```Powershell
 

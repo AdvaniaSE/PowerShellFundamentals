@@ -75,7 +75,7 @@ Write-Output outputs its result to the output stream, which in our case above is
 
 ---
 
-*Get-Help*
+*More Reading*
 
 ```Powershell
 

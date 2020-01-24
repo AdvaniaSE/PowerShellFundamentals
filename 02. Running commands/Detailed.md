@@ -23,8 +23,8 @@ Some examples of usefull commands to explore:
 
 ---
 
-*Get-Help*
+*More Reading*
 
 ```Powershell
-
+Get-Help about_Parameters
 ```

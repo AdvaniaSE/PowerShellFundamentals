@@ -68,7 +68,7 @@ The string is found in the HARBOTPSKS.txt file.
 
 ---
 
-*Get-Help*
+*More Reading*
 
 ```Powershell
 Get-Help about_Quoting_Rules

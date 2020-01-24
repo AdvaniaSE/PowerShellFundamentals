@@ -40,9 +40,9 @@ In most cases you can read the latest version of the documentation online. By us
 
 ---
 
-*Get-Help*
+*More Reading*
 
 ```Powershell
-get-help about_Updatable_Help
+Get-Help about_Updatable_Help
 Get-Help about_Command_Syntax
 ```

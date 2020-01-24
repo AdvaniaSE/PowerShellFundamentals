@@ -89,7 +89,7 @@ Get-Process -OutVariable MyVar
 
 ---
 
-*Get-Help*
+*More Reading*
 
 ```Powershell
 Get-Help about_Automatic_Variables

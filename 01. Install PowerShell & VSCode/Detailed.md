@@ -9,6 +9,6 @@
 
 ---
 
-*Get-Help*
+*More Reading*
 
-[about_PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview)
+[PowerShell Overview](https://docs.microsoft.com/en-us/powershell/scripting/overview)
