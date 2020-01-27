@@ -17,7 +17,7 @@ $Env:COMPUTERNAME
 ```Powershell
 # One such example is when exploring the filesystem.
 $MyFiles = Get-ChildItem -Path C:\ -Recurse -ErrorVariable MyErrors -ErrorAction SilentlyContinue
-# After runningn this command, you can use the $MyError variable to see which folders you dont have access to, or write to a log.
+# After running this command, you can use the $MyError variable to see which folders you dont have access to, or write to a log.
 $MyErrors
 ```
 
@@ -30,7 +30,7 @@ $MyErrors
 $MyFiles[0]
 $MyFiles[1]
 $MyFiles[2]
-# You can also use range conotation, '..', to get a series of results.
+# You can also use range operator, '..', to get a series of results.
 $MyFiles[0..10]
 ```
 
@@ -54,17 +54,17 @@ $Today | Get-Member
 - Find out what weekday new year's eve is in 2050
 
 ```Powershell
-# Use the DayOfWeek method to get what day it is.
+# Use the DayOfWeek method to get what day it is
 $FutureDate = Get-Date -Date 2050-12-31
 $FutureDate.DayOfWeek
 
 # And how many days is there until then?
-# You can use normal math formuals to calculate Dates and TimeSpans in PowerShell
+# You can use normal math formulas to calculate dates and time spans in PowerShell
 $FutureDate - $Today
 
 # What type is the resulting object?
 # The resulting object should be System.TimeSpan
-$FutureDate = $date - $Today
+$FutureDate = $Date - $Today
 $FutureDate | Get-Member
 
 # What date is it 500 days after new year's eve 2050?
@@ -74,16 +74,16 @@ $FutureDate.AddDays(500)
 
 ---
 
-- What is the difference of using "$var = command" and "command -outVariable var"? Read the help and describe
+- What is the difference of using `$var = command` and `command -outVariable var`? Read the help and describe
 
 ```Powershell
-# this is described in the about_CommonParameters help chapter, readable using Get-Help. Optionaly you may also add the -ShowWindow parameter to easier read and search help contents
+# This is described in the about_CommonParameters help chapter, readable using Get-Help. Optionally you may also add the -ShowWindow parameter to easier read and search help contents
 Get-Help about_CommonParameters -ShowWindow
 
 # Using $Variable = Command will force all output only to a variable
 $MyVar = Get-Process
 
-# Using the OutVariable will send out put to the pipeline, as well as storing it in a variable.
+# Using the OutVariable will send out put to the pipeline, as well as storing it in a variable
 Get-Process -OutVariable MyVar
 ```
 

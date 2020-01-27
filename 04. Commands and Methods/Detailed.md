@@ -17,7 +17,8 @@ $MyCommands = Get-Command
 # Examine possible methods that can provide the amount of objects in an array
 Get-Member -InputObject $MyCommands
 
-# Call the length property
+# Call the count or length property
+$MyCommands.Count
 $MyCommands.Length
 
 ```
@@ -121,18 +122,19 @@ $MyProcess = Get-Process -Name Notepad
 Get-Member -InputObject $MyProcess
 
 # You can either call the kill method
-$MyProcess.kill()
+$MyProcess.Kill()
 
 # Or the CloseMainWindow method
 $MyProcess.CloseMainWindow()
 ```
 
-*tip*: While the Close method on a process might seem logic at first, this method is actually used to free resources after a process has exited.
+*Tip*: While the Close method on a process might seem logic at first, this method is actually used to free resources after a process has exited.
 
 ---
 
 *More Reading*
 
 ```Powershell
-
+Get-Help about_Methods
+Get-Help about_Properties
 ```

@@ -13,7 +13,7 @@ Get-Command -Name *help
 Update your local help files by running the command
 
 ```Powershell
-update-help
+Update-Help
 ```
 
 ---
