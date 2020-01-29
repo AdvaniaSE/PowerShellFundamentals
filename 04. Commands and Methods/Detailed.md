@@ -2,7 +2,7 @@
 
 - List all commands on your Computer
 
-```Powershell
+```PowerShell
 Get-Command
 ```
 
@@ -10,7 +10,7 @@ Get-Command
 
 - How many commands are there on your computer?
 
-```Powershell
+```PowerShell
 # First, get the properties and methods available on an Array
 $MyCommands = Get-Command
 
@@ -27,14 +27,14 @@ $MyCommands.Length
 
 - Start Notepad through PowerShell
 
-```Powershell
+```PowerShell
 # Starting external programs from powershell can be done by calling the program directly
 notepad
 ```
 
 - Find the process id of Notepad
 
-```Powershell
+```PowerShell
 # Find a command to get the process
 Get-Command *process*
 
@@ -49,13 +49,13 @@ Get-Process -Name Notepad
 
 - Find a command to stop a process
 
-```Powershell
+```PowerShell
 Get-Command *process*
 ```
 
 - Stop Notepad through PowerShell using the process id
 
-```Powershell
+```PowerShell
 # Find a command to stop a process
 Get-Command *process*
 
@@ -70,13 +70,13 @@ Stop-Process -Id # enter your process id
 
 - Start Notepad through PowerShell
 
-```Powershell
+```PowerShell
 notepad
 ```
 
 - What is the path to the notepad process executable?
 
-```Powershell
+```PowerShell
 # Find the Notepad process and store it in a variable
 $MyProcess = Get-Process -Name Notepad
 
@@ -89,7 +89,7 @@ $MyProcess.Path
 
 - What type is the process?
 
-```Powershell
+```PowerShell
 # Find the Notepad process and store it in a variable
 $MyProcess = Get-Process -Name Notepad
 
@@ -103,7 +103,7 @@ $MyProcess.GetType()
 
 - Find a method to stop a process
 
-```Powershell
+```PowerShell
 # Find the Notepad process and store it in a variable
 $MyProcess = Get-Process -Name 'Notepad'
 
@@ -113,7 +113,7 @@ Get-Member -InputObject $MyProcess
 
 - Stop Notepad through PowerShell using the method
 
-```Powershell
+```PowerShell
 # You can either call the kill method
 $MyProcess.Kill()
 
@@ -127,7 +127,7 @@ $MyProcess.CloseMainWindow()
 
 *More Reading*
 
-```Powershell
+```PowerShell
 Get-Help about_Methods
 Get-Help about_Properties
 ```

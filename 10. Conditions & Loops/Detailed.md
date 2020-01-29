@@ -4,7 +4,7 @@
 
 - Using a `foreach` loop
 
-```Powershell
+```PowerShell
 # foreach - Using the % modulus operator
 $AllNumbers = 0,1,2,3,4,5,6,7,8,9,10
 foreach ($Number in $AllNumbers) {
@@ -16,7 +16,7 @@ foreach ($Number in $AllNumbers) {
 
 - Using a `while` loop
 
-```Powershell
+```PowerShell
 # while - With a manually defined list
 $i = 0
 while ($i -le 10) {
@@ -31,7 +31,7 @@ while ($i -le 10) {
 
 - Get all years between 2020 and 2050 where New Year's Eve falls on a Thursday
 
-```Powershell
+```PowerShell
 2020..2050 | Foreach-Object -Process {
     $NewYearsEve = Get-Date "$_-12-31"
     if ($NewYearsEve.DayOfWeek -eq 'Thursday') {
@@ -47,7 +47,7 @@ while ($i -le 10) {
   - Tuesday-Thursday: Just another `$_`
   - Friday-Sunday: Weekend wohoo!
 
-```Powershell
+```PowerShell
 $Today = Get-Date | Select-Object -ExpandProperty DayOfWeek
 switch ($Today) {
     'Monday' { 'I miss weekends' }
@@ -62,7 +62,7 @@ switch ($Today) {
 
 - Rewrite the test to loop through each weekday
 
-```Powershell
+```PowerShell
 # This example includes different ways of comparing strings in a switch statement
 $OneWeek = 0..6 | Foreach-Object -Process { (Get-Date).AddDays($_).DayOfWeek }
 
@@ -80,7 +80,7 @@ switch ($OneWeek) {
 
 *More Reading*
 
-```Powershell
+```PowerShell
 Get-Help about_While
 Get-Help about_Foreach
 Get-Help about_Do

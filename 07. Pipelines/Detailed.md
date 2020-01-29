@@ -2,13 +2,13 @@
 
 - Use `Out-GridView` to get an overview of the information about a process
 
-```Powershell
+```PowerShell
 Get-Process | Out-Gridview
 ```
 
 - Use `Out-GridView`, select any process properties, output the selected information to pipeline and then format it
 
-```Powershell
+```PowerShell
 # In order to return an object from Out-Gridview, you can use the OutputMode parameter
 Get-Process | Out-Gridview -OutputMode Multiple
 
@@ -20,21 +20,21 @@ Get-Process | Out-Gridview -OutputMode Multiple | Format-List
 
 - Find all services and filter the resulting object on only running services
 
-```Powershell
+```PowerShell
 # Find all services and filter by only those currently running
 $FilteredServices = Get-Service | Where-Object -Property Status -eq -Value 'Running'
 ```
 
 - Sort the services in order of `DisplayName`
 
-```Powershell
+```PowerShell
 # Sort the filtered services by DisplayName
 $FilteredServices | Sort-Object -Property DisplayName
 ```
 
 - Change the output to only show the service name, and if it can stop
 
-```Powershell
+```PowerShell
 # Select only Name and CanStop from the filtered, sorted services
 $FilteredServices | Sort-Object -Property DisplayName | Select-Object -Property Name, CanStop
 ```
@@ -43,6 +43,6 @@ $FilteredServices | Sort-Object -Property DisplayName | Select-Object -Property 
 
 *More Reading*
 
-```Powershell
+```PowerShell
 Get-Help about_Pipelines
 ```

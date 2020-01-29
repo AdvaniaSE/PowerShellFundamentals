@@ -25,6 +25,6 @@ Some examples of usefull commands to explore:
 
 *More Reading*
 
-```Powershell
+```PowerShell
 Get-Help about_Parameters
 ```

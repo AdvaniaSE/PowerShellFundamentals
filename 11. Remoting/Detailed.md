@@ -2,7 +2,7 @@
 
 - Use `Invoke-Command` to find the status of the WinRM service
 
-```Powershell
+```PowerShell
 Invoke-Command -ComputerName localhost -ScriptBlock {Get-Service -Name winrm | Select-Object -Property Name, Status}
 ```
 
@@ -19,7 +19,7 @@ RunspaceId     : <guid>
 
 - Establish a PSSession and output the environment variable `COMPUTERNAME`
 
-```Powershell
+```PowerShell
 New-PSSession -ComputerName localhost
 
 # If successful, you will get the following information:

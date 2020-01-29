@@ -4,7 +4,7 @@
 
 You can find all commands related to help in PowerShell by running the command
 
-```Powershell
+```PowerShell
 Get-Command -Name *help
 ```
 
@@ -12,13 +12,13 @@ Get-Command -Name *help
 
 Update your local help files by running the command
 
-```Powershell
+```PowerShell
 Update-Help
 ```
 
 After updating your help files you can find help on all cmdlets by running the command
 
-```Powershell
+```PowerShell
 Get-Help -Name $CommandName
 ```
 
@@ -36,9 +36,21 @@ In most cases you can read the latest version of the documentation online. By us
 
 ---
 
+- If you are not using Windows, install the module `Microsoft.PowerShell.GraphicalTools`
+
+```PowerShell
+# Find the module in PSGallery, wildcards are supported
+Find-Module -Name '*GraphicalTools'
+
+# After verifying that you have found the right module, you can install it
+Find-Module -Name 'Microsoft.PowerShell.GraphicalTools' | Install-Module
+```
+
+---
+
 *More Reading*
 
-```Powershell
+```PowerShell
 Get-Help about_Updatable_Help
 Get-Help about_Command_Syntax
 ```

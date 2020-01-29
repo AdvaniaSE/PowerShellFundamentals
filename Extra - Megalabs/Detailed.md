@@ -12,7 +12,7 @@ One possible solution can be found in the file "EnumerateModuleFolders.ps1" in t
 - Windows
     - Get all logon events from your computer's event log, optionally filter on failed attempts
 
-```Powershell
+```PowerShell
 # Use Get-WinEvent to find information on events in Windows
 Get-WinEvent
 ```

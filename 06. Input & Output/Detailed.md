@@ -2,7 +2,7 @@
 
 - Use `Read-Host` to save your age as a number to a variable called `$Age`
 
-```Powershell
+```PowerShell
 $Age = Read-Host -Prompt 'What is your age?'
 ```
 
@@ -10,7 +10,7 @@ $Age = Read-Host -Prompt 'What is your age?'
 
 - Use `$Age` to calculate your birth year and print it to the console
 
-```Powershell
+```PowerShell
 # First we need to have today's date in a variable
 $Today = Get-Date
 
@@ -25,7 +25,7 @@ Write-Output $BirthYear.Year
 
 - Use `Read-Host` to save secure input using a parameter
 
-```Powershell
+```PowerShell
 # Use the AsSecureString parameter to prevent the variable from being human readable
 $SecureString = Read-Host -Prompt 'Secure string test' -AsSecureString
 # Input will look like this:
@@ -41,7 +41,7 @@ $SecureString
 
 - Run a non working command such as `Get-FakeCommand`
 
-```Powershell
+```PowerShell
 Get-FakeCommand
 
 # Explore the error message
@@ -50,7 +50,7 @@ Get-Error
 
 - Change `$ErrorActionPreference` to "SilentlyContinue" and try again
 
-```Powershell
+```PowerShell
 $ErrorActionPreference = "SilentlyContinue"
 Get-FakeCommand
 ```
@@ -58,7 +58,7 @@ Get-FakeCommand
 - Restore the ErrorActionPreference to its default setting
 
 
-```Powershell
+```PowerShell
 $ErrorActionPreference = "Continue"
 ```
 
@@ -68,7 +68,7 @@ $ErrorActionPreference = "Continue"
     - What is the difference?
     - Why does it happen?
 
-```Powershell
+```PowerShell
 $MyVar = Write-Host 'This is from Write-Host'
 # Console will output 'This is from Write-Host'
 # The $MyVar variable is empty
@@ -88,7 +88,7 @@ This behaviour is because `Write-Host` outputs data to the information stream, w
 
 *More Reading*
 
-```Powershell
+```PowerShell
 Get-Command Write-* -Module Microsoft.PowerShell.Utility
 Get-Help about_Redirection
 ```
