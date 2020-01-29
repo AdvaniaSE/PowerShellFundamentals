@@ -1,4 +1,4 @@
-## Lab 03. Detailed - Update Help Documentation
+## Lab 03. Detailed - PowerShell Help
 
 **In order to be able to update all available help files, for all your modules, you need to start your powershell console as Administrator.**
 
