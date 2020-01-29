@@ -1,9 +1,14 @@
 ## Lab 08. PSDrives
 
-- Create an empty folder on your harddrive called 'c:\PWSHLab\'
-- Create a empty text file called pwshtestfile.txt inside the PWSHLab folder
-- Use powershell to edit the contents of the file
-- Using the core commands, verify the CreationTime and LastWriteTime of the file
+
+- Find available PowerShell Providers on your computer
+
+---
+
+- Create an empty folder on your computer called with the path "C:\PWSHLab\"
+- Create a empty text file called "pwshtestfile.txt" inside the PWSHLab folder
+- Use PowerShell to edit the contents of the file
+- Use PowerShell to verify the CreationTime and LastWriteTime of the file
 - Create a subfolder inside the PWSHLab folder
 
 ---
@@ -14,4 +19,4 @@
 
 ---
 
-- Use the core commands to remove the file and registry key created
+- Use PowerShell to remove both the file and the registry key created

@@ -1,34 +1,42 @@
 ## Lab 08. Detailed - PSDrives
 
-- Create an empty folder on your harddrive called 'c:\PWSHLab\'
+- Find available PowerShell Providers on your computer
 
 ```Powershell
-New-Item -Path c:\PWSHLab -ItemType Directory
+Get-PSProvider
 ```
 
-- Create a empty text file called pwshtestfile.txt inside the PWSHLab folder
+---
+
+- Create an empty folder on your computer with the path "C:\PWSHLab\"
 
 ```Powershell
-Set-Location -Path C:\PWSHLab\
-New-Item -Name pwshtestfile.txt -ItemType File
+New-Item -Path 'C:\PWSHLab' -ItemType Directory
 ```
 
-- Use powershell to edit the contents of the file
+- Create a empty text file called "pwshtestfile.txt" inside the PWSHLab folder
 
 ```Powershell
-Set-Content -Path .\pwshtestfile.txt -Value 'hello world'
+Set-Location -Path 'C:\PWSHLab'
+New-Item -Name 'pwshtestfile.txt' -ItemType File
 ```
 
-- Using the core commands, verify the CreationTime and LastWriteTime of the file
+- Use PowerShell to edit the contents of the file
 
 ```Powershell
- Get-ItemProperty -Path .\pwshtestfile.txt -Name CreationTime, LastWriteTime
+Set-Content -Path '.\pwshtestfile.txt' -Value 'Hello world!'
+```
+
+- Use PowerShell to verify the CreationTime and LastWriteTime of the file
+
+```Powershell
+ Get-ItemProperty -Path '.\pwshtestfile.txt' -Name CreationTime, LastWriteTime
 ```
 
 - Create a subfolder inside the PWSHLab folder
 
 ```Powershell
-New-Item -Name folder -ItemType Directory
+New-Item -Name 'folder' -ItemType Directory
 ```
 
 ---
@@ -39,32 +47,32 @@ New-Item -Name folder -ItemType Directory
 # To see the PSDrives available for registry run the following command
 Get-PSDrive -PSProvider Registry
 
-Set-Location -Path HKCU:
-New-Item -Name PWSHLab
+Set-Location -Path 'HKCU:'
+New-Item -Name 'PWSHLab'
 ```
 
 - Create a registry property in the PWSHLab called CreatedDate, containing todays date
 
 ```Powershell
-Set-Location -Path .\PWSHLab\
-New-ItemProperty -Name CreatedDate -Value (Get-Date) -Path .
+Set-Location -Path '.\PWSHLab'
+New-ItemProperty -Name 'CreatedDate' -Value (Get-Date) -Path '.'
 ```
 
 - Use Get-ChildItem to verify the registry key and property
 
 ```Powershell
-Set-Location -Path ..
+Set-Location -Path '..'
 Get-ChildItem
 ```
 
 ---
 
-- Use the core commands to remove the file and registry key created
+- Use PowerShell to remove the file and registry key created
 
 ```Powershell
-Remove-Item -Path HKCU:\PWSHLab\
-Remove-Item -Path C:\PWSHLab\
-# If you are certain you want to remove an enitre folder structure, use the -Recurse flag with Remove-Item
+Remove-Item -Path 'HKCU:\PWSHLab'
+Remove-Item -Path 'C:\PWSHLab'
+# If you are certain you want to remove an entire folder structure, use the -Recurse flag with Remove-Item
 ```
 
 ---
