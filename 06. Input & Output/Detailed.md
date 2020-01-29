@@ -80,5 +80,6 @@ Write-Output outputs its result to the output stream, which in our case above is
 *More Reading*
 
 ```Powershell
-
+Get-Command write-* -Module Microsoft.PowerShell.Utility
+Get-Help about_Redirection
 ```
