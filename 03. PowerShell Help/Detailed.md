@@ -46,7 +46,7 @@ Find-Module -Name 'Microsoft.PowerShell.GraphicalTools' | Install-Module
 
 ---
 
-*tip:* In most cases you can read the latest version of the documentation online. By using the `-Online` switch parameter in the `Get-Help` cmdlet you will automaticaly open a browser with the URL to documentation.
+*Tip:* In most cases you can read the latest version of the documentation online. By using the `-Online` switch parameter in the `Get-Help` cmdlet you will automaticaly open a browser with the URL to documentation.
 
 ---
 
