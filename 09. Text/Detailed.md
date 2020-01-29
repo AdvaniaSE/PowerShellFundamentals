@@ -62,9 +62,9 @@ Get-ChildItem '.\LabFiles\100sOfFiles\' | Select-String -Pattern 'FINDTHISST'
 
 The string is found in the HARBOTPSKS.txt file.
 
-*Tip!* Select-String understands RegEx for search pattern. Try searching for "(find|search)"!
+*Tip!* `Select-String` understands RegEx for search pattern. Try searching for "(find|search)"!
 
-*Tip!* Use Get-ChildItem -Recurse to search through large subfolder structures for content.
+*Tip!* Use `Get-ChildItem -Recurse` to search through large subfolder structures for content.
 
 ---
 
