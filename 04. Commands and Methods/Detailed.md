@@ -1,6 +1,6 @@
 ## Lab 04. Detailed - Commands and Methods
 
-- List Commands on the Computer
+- List all commands on your Computer
 
 ```Powershell
 Get-Command
@@ -31,8 +31,6 @@ $MyCommands.Length
 # Starting external programs from powershell can be done by calling the program directly
 notepad
 ```
-
----
 
 - Find the Process ID of Notepad
 

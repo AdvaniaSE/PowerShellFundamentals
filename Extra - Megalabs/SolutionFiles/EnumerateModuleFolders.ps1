@@ -2,7 +2,7 @@
 
 # First define some variables we are goung to need
 [array]$AllInstalledModuleFolders = @()
-[array]$result = @()
+[array]$Result = @()
 
 # Get a list of all module paths in current profile
 $AllModulePaths = $env:PSModulePath -split ';'
@@ -18,8 +18,8 @@ foreach ($ModuleFolder in $AllInstalledModuleFolders) {
     $TotalSizeOfFolder = (Get-ChildItem $ModuleFolder -Recurse | Measure-Object -Sum -Property Length | Select-Object -ExpandProperty Sum) / 1kb
 
     # if size is bigger than 500kb, add it to result as a pscustomobject
-    If ($TotalSizeOfFolder -ge 500) {
-        $result += [pscustomobject]@{
+    if ($TotalSizeOfFolder -ge 500) {
+        $Result += [pscustomobject]@{
             'Name' = $ModuleFolder.Name
             'Path' = $ModuleFolder.FullName
             'Size' = "{0:N2}" -f $TotalSizeOfFolder
@@ -29,4 +29,4 @@ foreach ($ModuleFolder in $AllInstalledModuleFolders) {
 
 # Finaly, convert the result to a csv file
 
-$result | Export-Csv -Path c:\temp\ModuleFolders.csv
+$Result | Export-Csv -Path C:\Temp\ModuleFolders.csv

@@ -1,6 +1,6 @@
-# Powershell Fundamentals
+# PowerShell Fundamentals
 
-Kursen PowerShell Fundamentals är PowerShell-kursen för alla som vill lära sig mer om hur man använder PowerShell till vardags.
+PowerShell Fundamentals är PowerShell-kursen för alla som vill lära sig mer om hur man använder PowerShell till vardags.
 
 På tre dagar går vi igenom allt från grunderna i hur man kör ett kommando i PowerShell till att komma igång att scripta.
 

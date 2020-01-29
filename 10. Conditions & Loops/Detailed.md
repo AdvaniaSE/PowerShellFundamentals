@@ -1,20 +1,26 @@
 ## Lab 10. Detailed - Conditions & Loops
 
-- List all even numbers between 0 and 10 using a foreach and a while loop
+- List all even numbers between 0 and 10
+
+- Using a `foreach` loop
 
 ```Powershell
-# Foreach, Using the % modulus operator
+# foreach - Using the % modulus operator
 $AllNumbers = 0,1,2,3,4,5,6,7,8,9,10
-Foreach ($Number in $AllNumbers) {
-    If ($Number % 2 -eq 0) {
+foreach ($Number in $AllNumbers) {
+    if ($Number % 2 -eq 0) {
         Write-Output $Number
     }
 }
+```
 
-# While
+- Using a `while` loop
+
+```Powershell
+# while - With a manually defined list
 $i = 0
 while ($i -le 10) {
-    If ($i -in 0,2,4,6,8,10) {
+    if ($i -in 0,2,4,6,8,10) {
         Write-Output $i
     }
     $i++
@@ -28,7 +34,7 @@ while ($i -le 10) {
 ```Powershell
 2020..2050 | Foreach-Object -Process {
     $NewYearsEve = Get-Date "$_-12-31"
-    If ($NewYearsEve.DayOfWeek -eq 'Thursday') {
+    if ($NewYearsEve.DayOfWeek -eq 'Thursday') {
         Write-Output $NewYearsEve.Year
     }
 }
@@ -36,18 +42,18 @@ while ($i -le 10) {
 
 ---
 
-- Create a switch of today's week day:
+- Create a `switch` of today's week day and output text depending on the day
   - Monday: I miss weekends
-  - Tuesday-Thursday: Just another $_
+  - Tuesday-Thursday: Just another `$_`
   - Friday-Sunday: Weekend wohoo!
 
 ```Powershell
 $Today = Get-Date | Select-Object -ExpandProperty DayOfWeek
 switch ($Today) {
     'Monday' { 'I miss weekends' }
-    'Tuesday' { 'Just another $_' }
-    'Wednesday' { 'Just another $_' }
-    'Thursday' { 'Just another $_' }
+    'Tuesday' { "Just another $_" }
+    'Wednesday' { "Just another $_" }
+    'Thursday' { "Just another $_" }
     'Friday' { 'Weekend wohoo!' }
     'Saturday' { 'Weekend wohoo!' }
     'Sunday' { 'Weekend wohoo!' }
@@ -60,7 +66,7 @@ switch ($Today) {
 # This example includes different ways of comparing strings in a switch statement
 $OneWeek = 0..6 | Foreach-Object -Process { (Get-Date).AddDays($_).DayOfWeek }
 
-# If the switch input is an Array, it will automaticaly loop through each object in the Array.
+# If the switch input is an array, it will automaticaly loop through each object in the array.
 
 switch ($OneWeek) {
     'Monday' { 'I miss weekends' } # String comparison

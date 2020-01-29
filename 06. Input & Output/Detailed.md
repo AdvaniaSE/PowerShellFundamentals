@@ -17,7 +17,7 @@ $Today = Get-Date
 # We then want to remove the number of years in $Age, but as there is only an AddYears method we can simply combine it with a - to add "-n" years
 $BirthYear = $Today.AddYears(-$Age)
 
-# To output only the year to console, use the Write-Output CmdLet, and the Year property
+# To output only the year to console, use the Write-Output cmdlet, and the Year property
 Write-Output $BirthYear.Year
 ```
 

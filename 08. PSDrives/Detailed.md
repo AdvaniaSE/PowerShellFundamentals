@@ -67,13 +67,14 @@ Get-ChildItem
 
 ---
 
-- Use PowerShell to remove the file and registry key created
+- Use PowerShell to remove both the file and the registry key created
 
 ```Powershell
 Remove-Item -Path 'HKCU:\PWSHLab'
 Remove-Item -Path 'C:\PWSHLab'
-# If you are certain you want to remove an entire folder structure, use the -Recurse flag with Remove-Item
 ```
+
+*Tip:* If you are certain you want to remove an entire folder structure you can use the -Recurse flag with `Remove-Item`.
 
 ---
 

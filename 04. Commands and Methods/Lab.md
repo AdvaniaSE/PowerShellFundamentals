@@ -1,6 +1,6 @@
 ## Lab 04. Detailed - Commands and Methods
 
-1. List Commands on the Computer
+1. List all commands on your Computer
     - How many commands are there on your computer?
 
 2. Start Notepad through PowerShell
