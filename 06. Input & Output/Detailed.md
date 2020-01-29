@@ -1,6 +1,6 @@
 ## Lab 06. Detailed - Input & Output
 
-- Use Read-Host to save your age as a number to a variable called `$Age`
+- Use `Read-Host` to save your age as a number to a variable called `$Age`
 
 ```Powershell
 $Age = Read-Host -Prompt 'What is your age?'
@@ -23,7 +23,7 @@ Write-Output $BirthYear.Year
 
 ---
 
-- Use Read-Host to save secure input using a parameter
+- Use `Read-Host` to save secure input using a parameter
 
 ```Powershell
 # Use the AsSecureString parameter to prevent the variable from being human readable
@@ -35,11 +35,11 @@ $SecureString = Read-Host -Prompt 'Secure string test' -AsSecureString
 $SecureString
 ```
 
-*Tip* It's possible to convert a SecureString back to plain text in the same context as it was created in.
+*Tip:* It's possible to convert a SecureString back to plain text in the same context as it was created in.
 
 ---
 
-- Run a non working command such as `Get-FakeCommand`.
+- Run a non working command such as `Get-FakeCommand`
 
 ```Powershell
 Get-FakeCommand
@@ -57,7 +57,7 @@ $ErrorActionPreference = "Continue"
 
 ---
 
-- Try using both Write-Host and Write-Output and saving the results to a variable. What is the difference? Why does it happen?
+- Try using both `Write-Host` and `Write-Output` and saving the results to a variable. What is the difference? Why does it happen?
 
 ```Powershell
 $MyVar = Write-Host 'This is from Write-Host'
@@ -72,14 +72,14 @@ $MyVar
 # The variable contains the data from Write-Output, 'This is from Write-Output'
 ```
 
-This behaviour is because Write-Host outputs data to the information stream, which by default is captured by the console.
-Write-Output outputs its result to the output stream, which in our case above is directed to the variable.
+This behaviour is because `Write-Host` outputs data to the information stream, which by default is captured by the console.
+`Write-Output` outputs its result to the output stream, which in our case above is directed to the variable.
 
 ---
 
 *More Reading*
 
 ```Powershell
-Get-Command write-* -Module Microsoft.PowerShell.Utility
+Get-Command Write-* -Module Microsoft.PowerShell.Utility
 Get-Help about_Redirection
 ```

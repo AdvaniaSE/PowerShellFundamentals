@@ -51,7 +51,7 @@ $Today | Get-Member
 
 ---
 
-- Find out what weekday new year's eve is in 2050
+- Find out what weekday New Year's Eve is in 2050
 
 ```Powershell
 # Use the DayOfWeek method to get what day it is
@@ -67,14 +67,14 @@ $FutureDate - $Today
 $FutureDate = $Date - $Today
 $FutureDate | Get-Member
 
-# What date is it 500 days after new year's eve 2050?
+# What date is it 500 days after New Year's Eve 2050?
 # Use the AddDays method to calculate this
 $FutureDate.AddDays(500)
 ```
 
 ---
 
-- What is the difference of using `$var = command` and `command -outVariable var`? Read the help and describe
+- What is the difference of using `$var = ExampleCommand` and `ExampleCommand -outVariable var`? Read the help and describe!
 
 ```Powershell
 # This is described in the about_CommonParameters help chapter, readable using Get-Help. Optionally you may also add the -ShowWindow parameter to easier read and search help contents

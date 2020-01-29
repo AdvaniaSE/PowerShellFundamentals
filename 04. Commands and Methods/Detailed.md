@@ -116,7 +116,7 @@ $MyProcess.GetType()
 
 ```Powershell
 # Find the Notepad process and store it in a variable
-$MyProcess = Get-Process -Name Notepad
+$MyProcess = Get-Process -Name 'Notepad'
 
 # Examine possible methods that can stop a process
 Get-Member -InputObject $MyProcess
