@@ -32,7 +32,7 @@ $MyCommands.Length
 notepad
 ```
 
-- Find the Process ID of Notepad
+- Find the process id of Notepad
 
 ```Powershell
 # Find a command to get the process
@@ -43,20 +43,17 @@ Get-Help Get-Process
 
 # Find the Notepad process
 Get-Process -Name Notepad
-# Note the column 'Id' in the output
 ```
 
----
+*Tip:* Note the property `Id` in the output!
 
-- Find a Command to Stop a Process
+- Find a command to stop a process
 
 ```Powershell
 Get-Command *process*
 ```
 
----
-
-- Stop Notepad through PowerShell using the Process ID
+- Stop Notepad through PowerShell using the process id
 
 ```Powershell
 # Find a command to stop a process
@@ -77,8 +74,6 @@ Stop-Process -Id # enter your process id
 notepad
 ```
 
----
-
 - What is the path to the notepad process executable?
 
 ```Powershell
@@ -91,8 +86,6 @@ Get-Member -InputObject $MyProcess
 # Call the path property
 $MyProcess.Path
 ```
-
----
 
 - What type is the process?
 
@@ -108,9 +101,7 @@ Get-Member -InputObject $MyProcess
 $MyProcess.GetType()
 ```
 
----
-
-- Find a Method to Stop a Process, and stop Notepad through PowerShell using the Method
+- Find a method to stop a process
 
 ```Powershell
 # Find the Notepad process and store it in a variable
@@ -118,7 +109,11 @@ $MyProcess = Get-Process -Name 'Notepad'
 
 # Examine possible methods that can stop a process
 Get-Member -InputObject $MyProcess
+```
 
+- Stop Notepad through PowerShell using the method
+
+```Powershell
 # You can either call the kill method
 $MyProcess.Kill()
 
@@ -126,7 +121,7 @@ $MyProcess.Kill()
 $MyProcess.CloseMainWindow()
 ```
 
-*Tip*: While the Close method on a process might seem logic at first, this method is actually used to free resources after a process has exited.
+*Tip:* While the `Close` method on a process might seem fitting, it's actually used to free resources after a process has exited.
 
 ---
 

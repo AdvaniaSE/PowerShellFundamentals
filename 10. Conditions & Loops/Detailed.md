@@ -42,7 +42,7 @@ while ($i -le 10) {
 
 ---
 
-- Create a `switch` of today's week day and output text depending on the day
+- Create a `switch` of today's weekday and output text depending on the day
   - Monday: I miss weekends
   - Tuesday-Thursday: Just another `$_`
   - Friday-Sunday: Weekend wohoo!
@@ -85,4 +85,5 @@ Get-Help about_While
 Get-Help about_Foreach
 Get-Help about_Do
 Get-Help about_For
+Get-Help about_Switch
 ```

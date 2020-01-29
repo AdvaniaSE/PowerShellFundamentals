@@ -27,13 +27,13 @@ New-Item -Name 'pwshtestfile.txt' -ItemType File
 Set-Content -Path '.\pwshtestfile.txt' -Value 'Hello world!'
 ```
 
-- Use PowerShell to verify the CreationTime and LastWriteTime of the file
+- Use PowerShell to verify the `CreationTime` and `LastWriteTime` of the file
 
 ```Powershell
  Get-ItemProperty -Path '.\pwshtestfile.txt' -Name CreationTime, LastWriteTime
 ```
 
-- Create a subfolder inside the PWSHLab folder
+- Create a subfolder inside the folder "PWSHLab"
 
 ```Powershell
 New-Item -Name 'folder' -ItemType Directory
@@ -41,7 +41,7 @@ New-Item -Name 'folder' -ItemType Directory
 
 ---
 
-- Create a new registry key in the HKEY_CURRENT_USER store called PWSHLab
+- Create a new registry key called "PWSHLab" in the "HKEY_CURRENT_USER" store
 
 ```Powershell
 # To see the PSDrives available for registry run the following command
@@ -51,14 +51,14 @@ Set-Location -Path 'HKCU:'
 New-Item -Name 'PWSHLab'
 ```
 
-- Create a registry property in the PWSHLab called CreatedDate, containing todays date
+- Create a registry property called `CreatedDate` in the "PWSHLab" key, containing today's date
 
 ```Powershell
 Set-Location -Path '.\PWSHLab'
 New-ItemProperty -Name 'CreatedDate' -Value (Get-Date) -Path '.'
 ```
 
-- Use Get-ChildItem to verify the registry key and property
+- Use `Get-ChildItem` to verify the registry key and property
 
 ```Powershell
 Set-Location -Path '..'

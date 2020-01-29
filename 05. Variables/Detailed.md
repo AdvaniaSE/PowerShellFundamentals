@@ -12,7 +12,7 @@ $Env:COMPUTERNAME
 
 ---
 
-- Test using -ErrorVariable. Can you find a scenario where this parameter could be useful?
+- Test using `-ErrorVariable`. Can you find a scenario where this parameter could be useful?
 
 ```Powershell
 # One such example is when exploring the filesystem.
@@ -36,7 +36,7 @@ $MyFiles[0..10]
 
 ---
 
-- Save today's date to a variable, and explore the different properties and methods of a DateTime object.
+- Save today's date to a variable, and explore the type and the different properties and methods of the object
 
 ```Powershell
 # Use Get-Command to find hos to get todays date
@@ -45,7 +45,7 @@ Get-Command -Verb Get -Noun Date
 # Store it in a variable
 $Today = Get-Date
 
-# Get the different properties and methods of a DateTime object
+# Get the different properties and methods of the DateTime object
 $Today | Get-Member
 ```
 

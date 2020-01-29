@@ -46,22 +46,31 @@ Get-FakeCommand
 
 # Explore the error message
 Get-Error
+```
 
-# Change ErrorActionPreference to "SilentlyContinue" and try again.
+- Change `$ErrorActionPreference` to "SilentlyContinue" and try again
+
+```Powershell
 $ErrorActionPreference = "SilentlyContinue"
 Get-FakeCommand
+```
 
-# Restore the ErrorActionPreference to its default setting
+- Restore the ErrorActionPreference to its default setting
+
+
+```Powershell
 $ErrorActionPreference = "Continue"
 ```
 
 ---
 
-- Try using both `Write-Host` and `Write-Output` and saving the results to a variable. What is the difference? Why does it happen?
+- Try using both `Write-Host` and `Write-Output` and save the results to a variable
+    - What is the difference?
+    - Why does it happen?
 
 ```Powershell
 $MyVar = Write-Host 'This is from Write-Host'
-#Console will output 'This is from Write-Host'
+# Console will output 'This is from Write-Host'
 # The $MyVar variable is empty
 $MyVar
 

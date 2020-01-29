@@ -19,19 +19,24 @@ Get-Process | Out-Gridview -OutputMode Multiple | Format-List
 ---
 
 - Find all services and filter the resulting object on only running services
-    - Sort the result in order of DisplayName
-    - Change the output to only show the service name, and if it can stop
 
 ```Powershell
-# Filter the result by only running services
-Get-Service | Where-Object -Property Status -eq -Value 'Running'
+# Find all services and filter by only those currently running
+$FilteredServices = Get-Service | Where-Object -Property Status -eq -Value 'Running'
+```
 
+- Sort the services in order of `DisplayName`
+
+```Powershell
 # Sort the filtered services by DisplayName
-Get-Service | Where-Object -Property Status -eq -Value 'Running' | 
-Sort-Object -Property DisplayName
+$FilteredServices | Sort-Object -Property DisplayName
+```
 
+- Change the output to only show the service name, and if it can stop
+
+```Powershell
 # Select only Name and CanStop from the filtered, sorted services
-Get-Service | Where-Object -Property Status -eq -Value 'Running' | Sort-Object -Property DisplayName | Select-Object -Property Name, CanStop
+$FilteredServices | Sort-Object -Property DisplayName | Select-Object -Property Name, CanStop
 ```
 
 ---

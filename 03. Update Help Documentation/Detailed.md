@@ -32,7 +32,7 @@ There is also built-in help for many of concepts in PowerShell in so-called 'abo
 Get-Help about_*
 ```
 
-In most cases you can read the latest version of the documentation online. By using the -Online switch in the Get-Help cmdlet you will automaticaly open a browser with the URL to documentation.
+In most cases you can read the latest version of the documentation online. By using the `-Online` switch parameter in the `Get-Help` cmdlet you will automaticaly open a browser with the URL to documentation.
 
 ---
 
