@@ -1,4 +1,4 @@
-# ![](.\pwrops.png) PowerShell Fundamentals
+# ![](pwrops.png) PowerShell Fundamentals
 
 PowerShell Fundamentals är PowerShell-kursen för alla som vill lära sig mer om hur man använder PowerShell till vardags.
 
