@@ -22,7 +22,7 @@ After updating your help files you can find help on all cmdlets by running the c
 Get-Help -Name $CommandName
 ```
 
-`$CommandName` is the name of the command that you wish to view help documentation for.
+`$CommandName` is the name of the command that you wish to view help documentation for. There are several parameters to retrieve more information about the command, such as `-Examples` or `-Detailed`.
 
 ---
 
