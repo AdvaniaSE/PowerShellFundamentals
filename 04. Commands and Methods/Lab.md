@@ -1,4 +1,4 @@
-## Lab 04. Detailed - Commands and Methods
+## Lab 04. Lab - Commands and Methods
 
 - List all commands on your Computer
     - How many commands are there on your computer?
