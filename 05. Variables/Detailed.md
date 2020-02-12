@@ -39,7 +39,7 @@ $MyFiles[0..10]
 - Save today's date to a variable, and explore the type and the different properties and methods of the object
 
 ```PowerShell
-# Use Get-Command to find hos to get todays date
+# Use Get-Command to find how to get today's date
 Get-Command -Verb Get -Noun Date
 
 # Store it in a variable
