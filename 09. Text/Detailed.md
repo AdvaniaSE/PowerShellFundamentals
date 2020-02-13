@@ -75,3 +75,6 @@ Get-Help about_Quoting_Rules
 Get-Help about_comparison_operators
 Get-Help about_Regular_Expressions
 ```
+Regex:
+[Quick Reference](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)
+[regex101.com](https://regex101.com/)
