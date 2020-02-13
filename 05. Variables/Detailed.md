@@ -64,8 +64,8 @@ $FutureDate - $Today
 
 # What type is the resulting object?
 # The resulting object should be System.TimeSpan
-$FutureDate = $Date - $Today
-$FutureDate | Get-Member
+$FutureDateType = $Date - $Today
+$FutureDateType | Get-Member
 
 # What date is it 500 days after New Year's Eve 2050?
 # Use the AddDays method to calculate this
