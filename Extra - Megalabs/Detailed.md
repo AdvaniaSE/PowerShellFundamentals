@@ -23,7 +23,7 @@ Get-WinEvent
 ---
 
 - Windows
-    - Create a csv report with the following information information from your computer:
+    - Create a csv report with the following information from your computer:
         - Manufacturer
         - OS Version
         - Serial Number
