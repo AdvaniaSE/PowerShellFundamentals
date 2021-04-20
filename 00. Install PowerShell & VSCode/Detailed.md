@@ -13,4 +13,6 @@
 
 [PowerShell Overview](https://docs.microsoft.com/en-us/powershell/scripting/overview)
 
+[Powershell on GitHub](https://github.com/PowerShell/PowerShell) Including all releases, pre-releases, and source code.
+
 [Cascadia Code Font](https://github.com/microsoft/cascadia-code)
