@@ -29,10 +29,10 @@ while ($i -le 10) {
 
 ---
 
-- Get all years between 2020 and 2050 where New Year's Eve falls on a Thursday
+- Get all years between 2021 and 2050 where New Year's Eve falls on a Thursday
 
 ```PowerShell
-2020..2050 | Foreach-Object -Process {
+2021..2050 | Foreach-Object -Process {
     $NewYearsEve = Get-Date "$_-12-31"
     if ($NewYearsEve.DayOfWeek -eq 'Thursday') {
         Write-Output $NewYearsEve.Year
