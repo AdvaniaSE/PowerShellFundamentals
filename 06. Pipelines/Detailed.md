@@ -1,12 +1,12 @@
 ## Lab 06. Detailed - Pipelines
 
-- Use `Out-GridView` to get an overview of the information about a process
+- Use `Out-GridView` to get an overview of the information about one or more processes running on your computer.
 
 ```PowerShell
 Get-Process | Out-Gridview
 ```
 
-- Use `Out-GridView`, select any process properties, output the selected information to pipeline and then format it
+- Use `Out-GridView`, select any process, output the selected process information to pipeline and then format it
 
 ```PowerShell
 # In order to return an object from Out-Gridview, you can use the OutputMode parameter
