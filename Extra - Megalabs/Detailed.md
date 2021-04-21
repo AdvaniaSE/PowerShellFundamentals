@@ -32,7 +32,8 @@ Get-WinEvent
         - Number of Disk Partitions
         - TPM Status (Enabled/Disabled)
 
-Just like with finding folders, there are many ways of getting computer information in PowerShell
+Just like with finding folders, there are many ways of getting computer information in PowerShell.
+
 One possible solution can be found in the file "CSVReport.ps1" in the folder "SolutionFiles".
 
 - Linux or MacOS?
