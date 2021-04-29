@@ -21,6 +21,7 @@ The course has no prerequisites but is meant to be useful for everyone from the 
 - [PSKoans](https://github.com/vexx32/PSKoans)
 - [Community Best Practices](https://github.com/PoshCode/PowerShellPracticeAndStyle)
 - [Book: Learn PowerShell in a Month of Lunches, Linux and macOS Edition](https://www.manning.com/books/learn-powershell-in-a-month-of-lunches-linux-and-macos-edition)
+- [Microsoft Learn - Powershell](https://docs.microsoft.com/en-us/learn/paths/powershell/)
 
 ---
 
