@@ -1,4 +1,4 @@
-## Megalab
+## Extralab
 
 A collection of extra, more complex labs.
 
@@ -16,10 +16,3 @@ A collection of extra, more complex labs.
         - Total RAM
         - Number of Disk Partitions
         - TPM Status (Enabled/Disabled)
-- Linux or MacOS?
-    - Please teach us!
-
----
-
-- Bring your own lab!
-    - Bring something that you want to show, need help with or have questions about!
