@@ -1,5 +1,7 @@
 ## Lab 03. Detailed - Commands and Methods
 
+-----------------------------------
+
 - List all commands on your Computer
 
 ```PowerShell
@@ -8,31 +10,16 @@ Get-Command
 
 ---
 
-- How many commands are there on your computer?
+- Open this file using notepad (or your favourite text editor)
 
 ```PowerShell
-# First, get the properties and methods available on an Array
-$MyCommands = Get-Command
-
-# Examine possible methods that can provide the amount of objects in an array
-Get-Member -InputObject $MyCommands
-
-# Call the count or length property
-$MyCommands.Count
-$MyCommands.Length
-
+# First go to the folder where you have the lab foles downloaded
+Set-Location <Path\to\downloadedFiles>
+# Starting external programs from powershell can be done by calling the program directly, and notepad accepts the filename as input.
+notepad .\MyLabFile.txt
 ```
 
----
-
-- Start Notepad through PowerShell
-
-```PowerShell
-# Starting external programs from powershell can be done by calling the program directly
-notepad
-```
-
-- Find the process id of Notepad
+- Find the process id of the open text editor
 
 ```PowerShell
 # Find a command to get the process
@@ -47,7 +34,7 @@ Get-Process -Name Notepad
 
 *Tip:* Note the property `Id` in the output!
 
-- Find a command to stop a process
+- Find a command to stop a process using powershell
 
 ```PowerShell
 Get-Command *process*
@@ -68,60 +55,40 @@ Stop-Process -Id # enter your process id
 
 ---
 
-- Start Notepad through PowerShell
+- Find a command to use and rename this file to "MyLabFile.csv"
 
 ```PowerShell
-notepad
+# since we know what we want to do (the "verb" of the command, Rename) we can use that to search for commands
+Get-Command -Verb "Rename"
+
+# Using Get-Help examples we can find how to use the Rename-Item command
+get-help Rename-Item -Examples
+
+# and finally rename the file
+Rename-Item -Path .\MyLabFile.txt -NewName "MyLabFile.csv"
 ```
 
-- What is the path to the notepad process executable?
+- Find the file size of the MyLabFile.csv
 
 ```PowerShell
-# Find the Notepad process and store it in a variable
-$MyProcess = Get-Process -Name Notepad
+# Some member names in powershell can be confusingly named. For example, there is no such thing as "file size" on a file object, but instead we measure the length of the file.
+(Get-Item .\MyLabFile.csv).Length
+# Or we can use the CmdLet Select-Object
+Get-Item .\MyLabFile.csv | Select-Object -ExpandProperty Length
 
-# Examine possible methods that can provide the path
-Get-Member -InputObject $MyProcess
-
-# Call the path property
-$MyProcess.Path
+# BONUS: Powershell have a lot of mathematical shorthand expressions you can use. For example you can get the file size in kilobytes using this formula
+(Get-Item .\MyLabFile.csv).Length / 1KB
 ```
 
-- What type is the process?
+- Find a command to use and Copy the file "MyLabFile.csv" to the folder "../04. Variables"
 
 ```PowerShell
-# Find the Notepad process and store it in a variable
-$MyProcess = Get-Process -Name Notepad
+# From the previous commands we know we're working with items (the Noun), and we want to copy it (the Verb), so we can right away read the help
+Get-Help Copy-Item
 
-# There are two ways of finding the type of a PowerShell object. 
-# Run Get-Member, and find the top line of the output
-Get-Member -InputObject $MyProcess
-
-# Or invoke the GetType() method on an object
-$MyProcess.GetType()
+# And run the command
+Copy-Item -Path .\MyLabFile.csv -Destination '..\04. Variables\'
 ```
-
-- Find a method to stop a process
-
-```PowerShell
-# Find the Notepad process and store it in a variable
-$MyProcess = Get-Process -Name 'Notepad'
-
-# Examine possible methods that can stop a process
-Get-Member -InputObject $MyProcess
-```
-
-- Stop Notepad through PowerShell using the method
-
-```PowerShell
-# You can either call the kill method
-$MyProcess.Kill()
-
-# Or the CloseMainWindow method
-$MyProcess.CloseMainWindow()
-```
-
-*Tip:* While the `Close` method on a process might seem fitting, it's actually used to free resources after a process has exited.
 
 ---
 
