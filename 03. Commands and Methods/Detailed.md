@@ -80,7 +80,17 @@ Get-Item .\MyLabFile.csv | Select-Object -ExpandProperty Length
 (Get-Item .\MyLabFile.csv).Length / 1KB
 ```
 
-- Find a command to use and Copy the file "MyLabFile.csv" to the folder "../04. Variables"
+- Find a command to use and create a folder called "MyLabFiles". Remember the path to it.
+
+```PowerShell
+# In powershell we can use legacy commands as well as powershell commands. We can either create a directory the old DOS way
+mkdir "MyLabFiles"
+
+# But of course we want to do it the powershell way, using New-Item.
+New-Item -Path "my/path/to/labfiles" -Name 'MyLabFiles' -ItemType Directory
+```
+
+- Find a command to use and Copy the file "MyLabFile.csv" to the "MyLabFiles" folder.
 
 ```PowerShell
 # From the previous commands we know we're working with items (the Noun), and we want to copy it (the Verb), so we can right away read the help

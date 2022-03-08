@@ -11,4 +11,5 @@ In this folder you have a file called "MyLabFile.txt".
 
 - Find a command to use and rename this file to "MyLabFile.csv"
 - Find the file size of the MyLabFile.csv
-- Find a command to use and Copy the file "MyLabFile.csv" to the folder "../04. Variables"
+- Find a command to use and create a folder called "MyLabFiles". Remember the path to it.
+- Find a command to use and Copy the file "MyLabFile.csv" to the "MyLabFiles" folder.
