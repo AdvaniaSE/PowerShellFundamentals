@@ -112,3 +112,5 @@ $MyNumber = 'Fortytwo'
 $MyNumber
 # > 42
 ```
+
+- Use VSCode to save these commands in a file called MyLabFile.ps1 in the folder you created in lab 3 - `Find a command to use and create a folder called "MyLabFiles". Remember the path to it.`

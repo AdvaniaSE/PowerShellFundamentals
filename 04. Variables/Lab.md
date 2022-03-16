@@ -20,3 +20,5 @@
   - Change the $ErrorActionPreference variable to 'SilentlyContinue'
   - Try again to set the value of the [int] type variable to a string and notice the difference
   - Verify the value of the variable.
+
+- Use VSCode to save these commands in a file called MyLabFile.ps1 in the folder you created in [lab  3](../03.%20Commands%20and%20Methods/Lab.md) - `Find a command to use and create a folder called "MyLabFiles". Remember the path to it.`

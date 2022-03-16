@@ -1,12 +1,14 @@
 ## Lab 05. Input & Output
 
-- Use `Read-Host` to save your age as a number to a variable called `$Age`
-    - Use `$Age` to calculate your birth year and print it to the console
-- Use `Read-Host` to save secure input using a parameter
-- Run a non working command such as `Get-FakeCommand`
-    - Explore the error message
-    - Change `$ErrorActionPreference` to "SilentlyContinue" and try again
-    - Restore the `$ErrorActionPreference` to its default setting
-- Try using both `Write-Host` and `Write-Output` and saving the results to a variable
-    - What is the difference?
-    - Why does it happen?
+- Use `Read-Host` with descriptive parameters to save your name in a variable called `$MyName`.
+  - Without changing the `$VerbosePreference` variable, Use `Write-Verbose` and output the variable value
+
+- Create an empty variable of type `[int]` named `$MyAge`
+  - Use `Read-Host` with descriptive parameters to save your age to the `$MyAge` variable
+
+- Find an `Out-*` command that outputs the default stream to a file.
+  - Use this command to output the `$MyName` variable to the `MyLabFile.csv` file created in [lab  3](../03.%20Commands%20and%20Methods/Lab.md) - **Without adding a newline**
+  - Use the same command to append a semicolon - `;` - the the same file, again **Without adding a newline**
+  - Use the same command to append the value of the `$MyAge` variable - this time also adding a newline
+
+- Use VSCode to save these commands in a file called MyLabFile.ps1 in the folder you created in [lab  3](../03.%20Commands%20and%20Methods/Lab.md) - `Find a command to use and create a folder called "MyLabFiles". Remember the path to it.`

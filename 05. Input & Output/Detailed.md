@@ -1,94 +1,51 @@
-## Lab 05. Detailed - Input & Output
+## Lab 05. Input & Output
 
-- Use `Read-Host` to save your age as a number to a variable called `$Age`
+- Use `Read-Host` with descriptive parameters to save your name in a variable called `$MyName`.
 
-```PowerShell
-$Age = Read-Host -Prompt 'What is your age?'
+```Powershell
+$MyName = Read-Host -Prompt 'What is your name?'
+
+# Without changing the `$VerbosePreference` variable, Use `Write-Verbose` and output the variable value
+Write-Verbose $MyName -Verbose
+# > VERBOSE: Björn
 ```
 
----
+- Create an variable of type `[int]` named `$MyAge`
 
-- Use `$Age` to calculate your birth year and print it to the console
+```Powershell
+# Because of a combination of the implicit setting of the variable type, and the PowerShell converting between different object types, you can do this by setting the variable to either '0', '[string]::Empty', or 'null'
+[int]$MyAge = 0
+[int]$MyAge = [string]::Empty
+[int]$MyAge = $null
+$MyAge
+# > 0
 
-```PowerShell
-# First we need to have today's date in a variable
-$Today = Get-Date
+# Use `Read-Host` with descriptive parameters to save your age to the `$MyAge` variable
+## Because of the implicitly typed variable we will not be able to set the value from Read-Host to anything other than an int.
+$MyAge = Read-Host -Prompt 'What is your age'
+# > What is your age: Fortytwo
+# > MetadataError: Cannot convert value "tjutvå" to type "System.Int32". Error: "Input string was not in a correct format."
+$MyAge = Read-Host -Prompt 'What is your age'
+# > What is your age: 42
+$MyAge
+# > 42
 
-# We then want to remove the number of years in $Age, but as there is only an AddYears method we can simply combine it with a - to add "-n" years
-$BirthYear = $Today.AddYears(-$Age)
-
-# To output only the year to console, use the Write-Output cmdlet, and the Year property
-Write-Output $BirthYear.Year
 ```
 
----
-
-- Use `Read-Host` to save secure input using a parameter
+- Find an `Out-*` command that outputs the default stream to a file.
 
 ```PowerShell
-# Use the AsSecureString parameter to prevent the variable from being human readable
-$SecureString = Read-Host -Prompt 'Secure string test' -AsSecureString
-# Input will look like this:
-# Secure string test: *********
+# Get all commands matching the filter
+Get-Command Out-*
+# Out-File redirects the default stream to a file. Find all parameters available using 'Get-Help'
+Get-Help Out-File
 
-# To verify the string, try to output it to console and you will only get System.Security.SecureString
-$SecureString
+# Use this command to output the `$MyName` variable to the `MyLabFile.csv` file created in lab  3 - **Without adding a newline**
+$MyName | Out-File -FilePath <path/to/MyLabFiles.csv> -NoNewline
+# Use the same command to append a semicolon - `;` - the the same file, again **Without adding a newline**
+Out-File -FilePath <path/to/MyLabFiles.csv> -InputObject ';' -NoNewline -Append
+# Use the same command to append the value of the `$MyAge` variable - this time also adding a newline
+$MyAge | Out-File -FilePath <path/to/MyLabFiles.csv> -Append
 ```
 
-*Tip:* It's possible to convert a SecureString back to plain text in the same context as it was created in.
-
----
-
-- Run a non working command such as `Get-FakeCommand`
-
-```PowerShell
-Get-FakeCommand
-
-# Explore the error message
-Get-Error
-```
-
-- Change `$ErrorActionPreference` to "SilentlyContinue" and try again
-
-```PowerShell
-$ErrorActionPreference = "SilentlyContinue"
-Get-FakeCommand
-```
-
-- Restore the ErrorActionPreference to its default setting
-
-
-```PowerShell
-$ErrorActionPreference = "Continue"
-```
-
----
-
-- Try using both `Write-Host` and `Write-Output` and save the results to a variable
-    - What is the difference?
-    - Why does it happen?
-
-```PowerShell
-$MyVar = Write-Host 'This is from Write-Host'
-# Console will output 'This is from Write-Host'
-# The $MyVar variable is empty
-$MyVar
-
-
-$MyVar = Write-Output 'This is from Write-Output'
-# No console output
-$MyVar
-# The variable contains the data from Write-Output, 'This is from Write-Output'
-```
-
-This behaviour is because `Write-Host` outputs data to the information stream, which by default is captured by the console.
-`Write-Output` outputs its result to the output stream, which in our case above is directed to the variable.
-
----
-
-*More Reading*
-
-```PowerShell
-Get-Command Write-* -Module Microsoft.PowerShell.Utility
-Get-Help about_Redirection
-```
+- Use VSCode to save these commands in a file called MyLabFile.ps1 in the folder you created in lab 3 - `Find a command to use and create a folder called "MyLabFiles". Remember the path to it.`
