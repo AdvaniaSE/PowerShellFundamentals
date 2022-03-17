@@ -1,4 +1,4 @@
-## Lab 08. Text
+## Lab 06. Text
 
 - In the folder "LabFiles" there are a number of files. One of them contains the string "purple". Using the `Select-String` Command, find this file.
 
