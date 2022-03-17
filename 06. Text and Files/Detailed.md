@@ -91,3 +91,21 @@ $MyUserList
 ```
 
 - Use VSCode to save these commands in a file called MyLabFile.ps1 in the folder you created in [lab  3](../03.%20Commands%20and%20Methods/Lab.md) - `Find a command to use and create a folder called "MyLabFiles". Remember the path to it.`
+
+---
+
+*More Reading*
+
+```PowerShell
+Get-Help about_Quoting_Rules
+Get-Help about_comparison_operators
+Get-Help about_Regular_Expressions
+```
+
+Regex:
+[Quick Reference](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)
+[regex101.com](https://regex101.com/)
+
+Get-Help about_Providers
+Get-Help about_*Provider
+Get-Help about_Core_Commands

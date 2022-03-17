@@ -114,3 +114,13 @@ $MyNumber
 ```
 
 - Use VSCode to save these commands in a file called MyLabFile.ps1 in the folder you created in lab 3 - `Find a command to use and create a folder called "MyLabFiles". Remember the path to it.`
+
+---
+
+*More Reading*
+
+```PowerShell
+Get-Help about_Automatic_Variables
+Get-Help about_Environment_Variables
+get-help about_Variables
+```
