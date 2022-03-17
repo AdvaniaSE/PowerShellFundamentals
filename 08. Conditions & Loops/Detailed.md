@@ -1,80 +1,87 @@
-## Lab 09. Detailed - Conditions & Loops
+## Lab 08. Conditions & Loops
 
-- List all even numbers between 0 and 10
-
-- Using a `foreach` loop
+- Get the contents of the csv file created in [lab 6](../06.%20Text%20and%20Files/Lab.md), convert it from csv to a powershell object, and store in variable `$MyUserData`
 
 ```PowerShell
-# foreach - Using the % modulus operator
-$AllNumbers = 0,1,2,3,4,5,6,7,8,9,10
-foreach ($Number in $AllNumbers) {
-    if ($Number % 2 -eq 0) {
-        Write-Output $Number
+$MyUserData = Get-Content -Path <path/to/MyLabFile.csv> | ConvertFrom-Csv -Delimiter ';'
+```
+
+- Get all users who has an even age, and output only the name and age of those users using a `foreach` loop
+
+```PowerShell
+## Using the % modulus operator
+foreach ($User in $MyUserData) {
+    if ($User.Age % 2 -eq 0) {
+        Write-Output $User | Select-Object -Property Name, Age
     }
 }
 ```
 
-- Using a `while` loop
+- Get all users whos name starts witha vowel (AOUEIY), and output name of those users using a `while` loop
 
 ```PowerShell
-# while - With a manually defined list
+## Since a list is always indexed starting at 0, but count is indexed starting at 1, we need to add a -1 to count to get the index correct.
+## We can use regex to match on many characters at the same time 
+## (^ - Start of string)
+## ([] - Match any character within this block)
+## (. - Any character at all)
+## (* - Match the previous character zero or more times)
 $i = 0
-while ($i -le 10) {
-    if ($i -in 0,2,4,6,8,10) {
-        Write-Output $i
+while ($i -le ($MyUserData.Count -1)) {
+    if ($MyUserData[$i].Name -Match '^[AOUEIY].*') {
+        Write-Output $MyUserData[$i].Name
     }
     $i++
 }
 ```
 
----
-
-- Get all years between 2021 and 2050 where New Year's Eve falls on a Thursday
+- Create a `switch` of all the users in the `$MyUserData` list and based on the colour, output:
 
 ```PowerShell
-2021..2050 | Foreach-Object -Process {
-    $NewYearsEve = Get-Date "$_-12-31"
-    if ($NewYearsEve.DayOfWeek -eq 'Thursday') {
-        Write-Output $NewYearsEve.Year
-    }
+Switch ($MyUserData) {
+  {$_.Colour -eq "Yellow"} {Write-Output "$($_.Name) is living in a $($_.Colour) submarine"}
+  {$_.Colour -eq "Purple"} {Write-Output "$($_.Name) wants to see you cry in the $($_.Colour) rain"}
+  {$_.Colour -eq "Pink"} {Write-Output "$($_.Name) is building a wall"}
+  {$_.Colour -eq "Black"} {Write-Output "$($_.Name) is painting a door"}
+  {$_.Colour -eq "Green"} {Write-Output "$($_.Name) is an american idiot"}
+  {$_.Colour -eq "Blue"} {Write-Output "$($_.Name) has a full tank of gas, half a pack of cigarettes, it's dark and he's wearing sunglasses."}
+  {$_.Colour -eq "Red"} {Write-Output "$($_.Name) wants to give it away now"}
 }
 ```
 
----
-
-- Create a `switch` of today's weekday and output text depending on the day
-  - Monday: I miss weekends
-  - Tuesday-Thursday: Just another `$_`
-  - Friday-Sunday: Weekend wohoo!
+- Add functionality to the switch statement
 
 ```PowerShell
-$Today = Get-Date | Select-Object -ExpandProperty DayOfWeek
-switch ($Today) {
-    'Monday' { 'I miss weekends' }
-    'Tuesday' { "Just another $_" }
-    'Wednesday' { "Just another $_" }
-    'Thursday' { "Just another $_" }
-    'Friday' { 'Weekend wohoo!' }
-    'Saturday' { 'Weekend wohoo!' }
-    'Sunday' { 'Weekend wohoo!' }
+# Change the input to only get five random members of the $MyUserData list
+Switch ($MyUserData | Get-Random -Count 5) {
+
+# Add a default value that outputs "\<Name> needs to start a band"
+Default {Write-Output "$($_.Name) needs to start a band!"}
+# Verify that your user ends up in the correct switch match. Edit the match statement if needed.
+$MyName = 'Björn Sundling'
+{$_.Colour -eq "Yellow" -and $_.Name -ne $MyName}
+# Make sure you break out of the loop as soon as it finds a match.
+## Using the break keyword here would cause the entire switch run to end. We only want to end the current comparison, so instead we use the Continue keyword
+{Write-Output "$($_.Name) is building a wall" ; Continue}
+```
+
+Result
+
+```PowerShell
+$MyName = 'Björn Sundling'
+Switch ($MyUserData | Get-Random -Count 5) {
+  {$_.Colour -eq "Yellow" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) is living in a $($_.Colour) submarine" ; Continue}
+  {$_.Colour -eq "Purple" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) wants to see you cry in the $($_.Colour) rain" ; Continue}
+  {$_.Colour -eq "Pink" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) is building a wall" ; Continue}
+  {$_.Colour -eq "Black" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) is painting a door" ; Continue}
+  {$_.Colour -eq "Green" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) is an american idiot" ; Continue}
+  {$_.Colour -eq "Blue" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) has a full tank of gas, half a pack of cigarettes, it's dark and he's wearing sunglasses." ; Continue}
+  {$_.Colour -eq "Red" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) wants to give it away now" ; Continue}
+  Default {Write-Output "$($_.Name) needs to start a band!"}
 }
 ```
 
-- Rewrite the test to loop through each weekday
-
-```PowerShell
-# This example includes different ways of comparing strings in a switch statement
-$OneWeek = 0..6 | Foreach-Object -Process { (Get-Date).AddDays($_).DayOfWeek }
-
-# If the switch input is an array, it will automaticaly loop through each object in the array.
-
-switch ($OneWeek) {
-    'Monday' { 'I miss weekends' } # String comparison
-    { $_ -gt 1 -and $_ -lt 5 } { "Just another $_" } # DayOfWeek can also be counted using numbers
-    'Friday' { "$_ Weekend wohoo!" }
-    { $_ -match '^s.*' } { "It's weekend!" } # Regex comparison
-}
-```
+- Use VSCode to save these commands in a file called MyLabFile.ps1 in the folder you created in [lab  3](../03.%20Commands%20and%20Methods/Lab.md) - `Find a command to use and create a folder called "MyLabFiles". Remember the path to it.`
 
 ---
 
