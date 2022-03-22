@@ -1,9 +1,9 @@
-## Lab 04. Detailed - Variables
+# Lab 04. Detailed - Variables
 
 - Find the name of your computer in environment variables
 
 ```PowerShell
-# Environment variables in powershell is located in a PSDrive. To list all environment variables, use the Get-ChildItem cmdlet
+# Environment variables in powershell is located in a PSDrive. To list all environment variables, use the Get-ChildItem command
 Get-ChildItem -Path Env:
 
 # To expand an environment variable, you can use the PSDrive as a variable

@@ -1,6 +1,4 @@
-## Lab 03. Detailed - Commands and Methods
-
------------------------------------
+# Lab 03. Detailed - Commands and Methods
 
 - List all commands on your Computer
 
@@ -13,9 +11,10 @@ Get-Command
 - Open this file using notepad (or your favourite text editor)
 
 ```PowerShell
-# First go to the folder where you have the lab foles downloaded
-Set-Location <Path\to\downloadedFiles>
-# Starting external programs from powershell can be done by calling the program directly, and notepad accepts the filename as input.
+# First go to the folder where you have the lab files downloaded
+Set-Location <path\to\downloadedFiles>
+
+# PowerShell can start programs by calling the program directly, and notepad accepts the filename as input
 notepad .\MyLabFile.txt
 ```
 
@@ -28,13 +27,13 @@ Get-Command *process*
 # Explore possible parameters using Get-Help
 Get-Help Get-Process
 
-# Find the Notepad process
+# Find the Notepad process (or chosen text editor)
 Get-Process -Name Notepad
 ```
 
 *Tip:* Note the property `Id` in the output!
 
-- Find a command to stop a process using powershell
+- Find a command to stop a process using PowerShell
 
 ```PowerShell
 Get-Command *process*
@@ -50,19 +49,19 @@ Get-Command *process*
 Get-Help Stop-Process
 
 # Use the previously found Process id to stop notepad
-Stop-Process -Id # enter your process id
+Stop-Process -Id <your-process-id>
 ```
 
 ---
 
-- Find a command to use and rename this file to "MyLabFile.csv"
+- Find a command to rename this file to "MyLabFile.csv"
 
 ```PowerShell
 # since we know what we want to do (the "verb" of the command, Rename) we can use that to search for commands
 Get-Command -Verb "Rename"
 
 # Using Get-Help examples we can find how to use the Rename-Item command
-get-help Rename-Item -Examples
+Get-Help Rename-Item -Examples
 
 # and finally rename the file
 Rename-Item -Path .\MyLabFile.txt -NewName "MyLabFile.csv"
@@ -71,16 +70,18 @@ Rename-Item -Path .\MyLabFile.txt -NewName "MyLabFile.csv"
 - Find the file size of the MyLabFile.csv
 
 ```PowerShell
-# Some member names in powershell can be confusingly named. For example, there is no such thing as "file size" on a file object, but instead we measure the length of the file.
+# Some properties in PowerShell are named differently than expected. For example there is no such thing as "file size" on a file object, instead there is a length property
 (Get-Item .\MyLabFile.csv).Length
-# Or we can use the CmdLet Select-Object
+
+# We can also use the Select-Object command
 Get-Item .\MyLabFile.csv | Select-Object -ExpandProperty Length
 
-# BONUS: Powershell have a lot of mathematical shorthand expressions you can use. For example you can get the file size in kilobytes using this formula
+# PowerShell has a lot of mathematical expressions that you can use
+# For example we can get the file size in kilobytes using this formula
 (Get-Item .\MyLabFile.csv).Length / 1KB
 ```
 
-- Find a command to use and create a folder called "MyLabFiles". Remember the path to it.
+- Find a command to use, then create a folder called "MyLabFiles". Remember the path to it.
 
 ```PowerShell
 # In powershell we can use legacy commands as well as powershell commands. We can either create a directory the old DOS way
@@ -90,13 +91,13 @@ mkdir "MyLabFiles"
 New-Item -Path "my/path/to/labfiles" -Name 'MyLabFiles' -ItemType Directory
 ```
 
-- Find a command to use and Copy the file "MyLabFile.csv" to the "MyLabFiles" folder.
+- Find a command to use, then copy the file "MyLabFile.csv" to the "MyLabFiles" folder.
 
 ```PowerShell
-# From the previous commands we know we're working with items (the Noun), and we want to copy it (the Verb), so we can right away read the help
+# We know the Noun to work with (Item) and the Verb to use (Copy), so we can look at the help of the command
 Get-Help Copy-Item
 
-# And run the command
+# After reading the help we know how to use the command
 Copy-Item -Path .\MyLabFile.csv -Destination '..\04. Variables\'
 ```
 

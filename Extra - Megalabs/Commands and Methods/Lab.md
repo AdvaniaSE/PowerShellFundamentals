@@ -1,4 +1,4 @@
-## Lab 03. Lab - Commands and Methods
+# Lab 03. Lab - Commands and Methods
 
 - List all commands on your Computer
     - How many commands are there on your computer?

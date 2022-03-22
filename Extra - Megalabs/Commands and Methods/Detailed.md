@@ -1,4 +1,4 @@
-## Lab 03. Detailed - Commands and Methods
+# Lab 03. Detailed - Commands and Methods
 
 - List all commands on your Computer
 

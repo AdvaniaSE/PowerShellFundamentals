@@ -1,4 +1,4 @@
-## Lab 08. Detailed - Text
+# Lab 08. Detailed - Text
 
 - Read data to variable from the pre-created file "LabFile1.txt" in the folder "LabFiles"
 

@@ -1,4 +1,4 @@
-## Lab 09. Wrap up and clean up
+# Lab 09. Wrap up and clean up
 
 By now you should have a folder with two files:
 

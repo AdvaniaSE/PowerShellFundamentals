@@ -1,4 +1,4 @@
-## Lab 05. Input & Output
+# Lab 05. Input & Output
 
 - Use `Read-Host` with descriptive parameters to save your name in a variable called `$MyName`.
 

@@ -1,4 +1,4 @@
-## Lab 04. Variables
+# Lab 04. Variables
 
 - Find the name of your computer in environment variables
 - Test using -ErrorVariable. Can you find a scenario where this parameter could be useful?

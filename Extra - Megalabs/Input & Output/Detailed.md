@@ -1,4 +1,4 @@
-## Lab 05. Detailed - Input & Output
+# Lab 05. Detailed - Input & Output
 
 - Use `Read-Host` to save your age as a number to a variable called `$Age`
 
@@ -17,7 +17,7 @@ $Today = Get-Date
 # We then want to remove the number of years in $Age, but as there is only an AddYears method we can simply combine it with a - to add "-n" years
 $BirthYear = $Today.AddYears(-$Age)
 
-# To output only the year to console, use the Write-Output cmdlet, and the Year property
+# To output only the year to console, use the Write-Output command, and the Year property
 Write-Output $BirthYear.Year
 ```
 

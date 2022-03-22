@@ -1,4 +1,4 @@
-## Lab 10. Detailed - Remoting
+# Lab 10. Detailed - Remoting
 
 - Use `Invoke-Command` to find the status of the WinRM service
 

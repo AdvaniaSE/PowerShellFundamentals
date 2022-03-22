@@ -1,4 +1,4 @@
-## Lab 08. Conditions & Loops
+# Lab 08. Conditions & Loops
 
 - Get the contents of the csv file created in [lab 6](../06.%20Text%20and%20Files/Lab.md), convert it from csv to a powershell object, and store in variable `$MyUserData`
 

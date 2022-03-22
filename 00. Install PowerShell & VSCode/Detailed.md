@@ -1,4 +1,4 @@
-## Lab 00. Detailed - Install PowerShell & VSCode
+# Lab 00. Detailed - Install PowerShell & VSCode
 
 - **If Windows**
   - Check your currently installed Windows PowerShell version by running `$PSVersionTable` in your Windows PowerShell console
@@ -10,7 +10,7 @@
 
 - Find out your current Execution Policy by running `Get-ExecutionPolicy -List` and looking at the highest policy that is not `Undefined`
 
-- Install [Git-scm](https://git-scm.com/) (or another git client)
+- Install [Git](https://git-scm.com/)
   - Make sure you check the **`Use the native Windows Secure Channel library`** during install!
 
 ---

@@ -1,4 +1,4 @@
-## Lab 05. Input & Output
+# Lab 05. Input & Output
 
 - Use `Read-Host` to save your age as a number to a variable called `$Age`
     - Use `$Age` to calculate your birth year and print it to the console

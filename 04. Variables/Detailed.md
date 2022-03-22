@@ -1,4 +1,4 @@
-## Lab 04. Variables
+# Lab 04. Variables
 
 - Find your username in an environment variable
 
@@ -6,53 +6,56 @@
 $env:UserName
 ```
 
-- Find a command to get todays date and store it in the variable `$today`
+- Find a command to get today's date and store it in the variable `$Today`
 
 ```PowerShell
 $Today = Get-Date
 
-# Expand the variable $today and see how the output looks.
-# Outputs the day, date, and time.
+# Examine the variable $Today and see how it looks
+# Shows the day, date, and time
 $Today
 # > Tuesday, 15 March 2022 15:30:50
 
-# Find one or more method(s) you can use to change the output of the variable to some other format.
+# Find one or more methods you can use to display the date in a different format
 # ToLongDateString() outputs only the date
-$today.ToLongDateString()
+$Today.ToLongDateString()
 # > Tuesday, 15 March 2022
+
 # ToShortTimeString() outputs only the time in hours and minutes
-$today.ToShortTimeString()
+$Today.ToShortTimeString()
 # > 15:30
+
 # The ToString() method can be used to output it in any form you want.
-$today.ToString('yy-MM-dd_hh:mm.ss')
-# > 22-03-15_03:30.50
-# But you will need to escape any character that can be interpreted as a timestamp of some kind...
-$today.ToString("To\da\y i\s \t\he dd:\t\h o\f MMMM, yyyy. I\t\s \t\he HH:\t\h \hour o\f \t\he \da\y")
+$Today.ToString('yy-MM-dd_HH:mm.ss')
+# > 22-03-15_15:30.50
+
+# To print text you need to escape characters that can be interpreted as date formatting symbols
+$Today.ToString("To\da\y i\s \t\he dd:\t\h o\f MMMM, yyyy. I\t\s \t\he HH:\t\h \hour o\f \t\he \da\y")
 # > Today is the 15:th of March, 2022. Its the 15:th hour of the day
 
-# Check the type of the variable and its properties and methods.
+# Check the type of the variable and its properties and methods
 $Today | Get-Member
 # or
 Get-Member -InputObject $Today
 
-# Using a CmdLet, try to get the variable `today`. Notice the output, and the difference from expanding a variable.
-Get-Variable -Name today
-# Using Get-Variable returns a PSVariable type object, which we can also see byt running 
-Get-Variable -Name today | Get-Member
+# Using a command, try to get the variable $Today. Notice the output and the difference from looking at the variable directly
+Get-Variable -Name Today
+# Using Get-Variable returns a PSVariable type object, which we can also see by running 
+Get-Variable -Name Today | Get-Member
 ```
 
-
-- Create a list of colours, containing at least three different ones. Pick one colour to output from the list.
+- Create a list of colours, containing at least three different ones
 
 ```PowerShell
 $MyColours = @('red','green','blue')
-$MyColours[1]
-# > green
+# Pick one of the colours and find it in the list
+$MyColours[0]
+# > red
 
-# Find a way to add one more colour to the list
+# Find a way to add another colour to the list
 $MyColours += 'yellow'
 
-# Try it using different type of lists and different styles, such as
+# Try it using different type of lists or collections, such as
 ## Array
 [array]$MyArray = @()
 $MyColours += 'red'

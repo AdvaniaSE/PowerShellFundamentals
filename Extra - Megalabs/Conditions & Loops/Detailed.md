@@ -1,4 +1,4 @@
-## Lab 09. Detailed - Conditions & Loops
+# Lab 09. Detailed - Conditions & Loops
 
 - List all even numbers between 0 and 10
 

@@ -1,4 +1,4 @@
-## Lab 07. Detailed - PSDrives
+# Lab 07. Detailed - PSDrives
 
 - Find available PowerShell Providers on your computer
 

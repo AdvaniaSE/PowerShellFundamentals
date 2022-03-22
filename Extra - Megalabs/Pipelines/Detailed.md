@@ -1,4 +1,4 @@
-## Lab 06. Detailed - Pipelines
+# Lab 06. Detailed - Pipelines
 
 - Use `Out-GridView` to get an overview of the information about one or more processes running on your computer.
 

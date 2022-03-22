@@ -1,4 +1,4 @@
-## Lab 02. PowerShell Help
+# Lab 02. PowerShell Help
 
 - Update the help documentation in PowerShell as Administrator
 - Verify that you have local help available
