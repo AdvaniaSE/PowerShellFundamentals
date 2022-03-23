@@ -9,7 +9,9 @@ In this folder you have a file called "MyLabFile.txt".
 - Find a command to stop a process using PowerShell
 - Stop the opened text editor in PowerShell using the process id
 
-- Find a command to use, then rename this file to "MyLabFile.csv"
+---
+
+- Find a command to use, then rename the file to "MyLabFile.csv"
 - Find the file size of the "MyLabFile.csv"
 - Find a command to use, then create a folder called "MyLabFiles". Remember the path to it
 - Find a command to use, then copy the file "MyLabFile.csv" to the new "MyLabFiles" folder

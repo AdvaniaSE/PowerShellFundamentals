@@ -54,7 +54,7 @@ Stop-Process -Id <your-process-id>
 
 ---
 
-- Find a command to rename this file to "MyLabFile.csv"
+- Find a command to rename the file to "MyLabFile.csv"
 
 ```PowerShell
 # since we know what we want to do (the "verb" of the command, Rename) we can use that to search for commands

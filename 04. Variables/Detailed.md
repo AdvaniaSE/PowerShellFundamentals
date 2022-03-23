@@ -47,76 +47,73 @@ Get-Variable -Name Today | Get-Member
 - Create a list of colours, containing at least three different ones
 
 ```PowerShell
-$MyColours = @('red','green','blue')
-# Pick one of the colours and find it in the list
-$MyColours[0]
-# > red
-
+$MyColourArray = @('red','green','blue')
 # Find a way to add another colour to the list
-$MyColours += 'yellow'
+$MyColourArray += 'yellow'
 
-# Try it using different type of lists or collections, such as
-## Array
-[array]$MyArray = @()
-$MyColours += 'red'
-$MyColours += 'green'
-$MyColours += 'blue'
-$MyColours += 'yellow'
-
-## Hashtable
-# Hashtables needs to be in the form of key = value, and keys must be unique, so we can't make a list of only colours. Lets add some nuance to it!
-$MyHashTable.Add('red','dark')
-$MyHashTable.Add('blue','light')
-# we cant add one more value with the same key
-$MyHashTable.Add('red','light')
-# > MethodInvocationException: Exception calling "Add" with "2" argument(s): "Item has already been added. Key in dictionary: 'red'  Key being added: 'red'"
-## But we can also add an array as value
-$MyHashTable.Add('green',@('dark','light'))
-$MyHashTable
-# > Name                           Value
-# > ----                           -----
-# > blue                           lightk
-# > green                          {dark, light}
-# > red                            dark
-
-## Arraylist
-# When adding an object to an arraylists powershell automatically outputs the count of the amount of proerties. We can suppress this by assining it to $null
-$MyArrayList = [System.Collections.ArrayList]::new()
-$MyArrayList.Add('red')
-# > 0
-$MyArrayList.Add('green')
-# > 1
-$Null = $MyArrayList.Add('blue')
-
-## List<t>
-$MyListT = [System.Collections.Generic.List[object]]::new()
-$MyListT.Add('red')
-$MyListT.Add('green') 
-$MyListT.Add('blue') 
+# Pick one of the colours and find it in the list
+# Arrays start at 0
+$MyColourArray[0]
+# > red
 ```
 
-- Create an explicitly typed variable of type [int] and add a value to it.
+- Try the same with a hashtable of three fruits with their colours as values
+
+```PowerShell
+# Hashtables have unique keys with corresponding values
+# Create a hashtable with fruits as keys and their colours as values
+$MyColourHashtable = @{
+    'banana' = 'yellow'
+    'apple' = 'red'
+    'orange' = 'orange'
+}
+
+# Find a way to add another fruit (and its colour) to the hashtable
+$MyColourHashtable.Add('pear','green')
+
+# Pick one of the fruits and find its colour
+$MyColourHashtable['banana']
+# > yellow
+
+# Adding another item with a non-unique key will result in an error
+$MyColourHashtable.Add('apple','green')
+# "Item has already been added. Key in dictionary: 'apple'  Key being added: 'apple'"
+
+$MyColourHashtable
+# > Name      Value
+# > ----      -----
+# > apple     red
+# > orange    orange
+# > pear      green
+# > banana    yellow
+```
+
+- Create a variable and set a numerical value to it
+
+```PowerShell
+$MyNumber = 42
+
+# Try to set the value of the variable to a string instead
+$MyNumber = 'Fortytwo'
+
+# Verify the value of the variable
+$MyNumber
+# > Fortytwo
+```
+
+- Create a variable of type `[int]` and try it again
 
 ```PowerShell
 [int]$MyNumber = 42
 
-# Try to set the value of the [int] type variable to a string instead
+# Trying to set the value to a string will now result in an error
 $MyNumber = 'Fortytwo'
-# > MetadataError: Cannot convert value "Fortytwo" to type "System.Int32". Error: "Input string was not in a correct format."
+# > "Input string was not in a correct format."
 
-# Change the $ErrorActionPreference variable to 'SilentlyContinue'
-$ErrorActionPreference = 'SilentlyContinue'
-
-# Try again to set the value of the [int] type variable to a string and notice the difference
-$MyNumber = 'Fortytwo'
-# No output is given
-
-# Verify the value of the variable.
+# Verify the value of the variable
 $MyNumber
 # > 42
 ```
-
-- Use VSCode to save these commands in a file called MyLabFile.ps1 in the folder you created in lab 3 - `Find a command to use and create a folder called "MyLabFiles". Remember the path to it.`
 
 ---
 
