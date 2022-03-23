@@ -1,14 +1,25 @@
 # Lab 05. Input & Output
 
-- Use `Read-Host` with descriptive parameters to save your name in a variable called `$MyName`.
-  - Without changing the `$VerbosePreference` variable, Use `Write-Verbose` and output the variable value
+- Use `Read-Host` with a descriptive question to save your name in a variable called `$MyName`
+- Try to output the variable to different streams using some of the `Write-*` commands
+  - `Write-Host`
+  - `Write-Error`
+  - `Write-Information`
+  - `Write-Verbose`
+- Modify the preference variables of the streams to reverse the behavior, instead displaying or hiding the output
 
-- Create an empty variable of type `[int]` named `$MyAge`
-  - Use `Read-Host` with descriptive parameters to save your age to the `$MyAge` variable
+---
 
-- Find an `Out-*` command that outputs the default stream to a file.
-  - Use this command to output the `$MyName` variable to the `MyLabFile.csv` file created in [lab  3](../03.%20Commands%20and%20Methods/Lab.md) - **Without adding a newline**
-  - Use the same command to append a semicolon - `;` - the the same file, again **Without adding a newline**
-  - Use the same command to append the value of the `$MyAge` variable - this time also adding a newline
+- Create an variable of type `[int]` named `$MyAge` with the value of 0
+  - Use `Read-Host` with a descriptive question to save your age to the variable as a number
+  - Try it again but this time as a string
+  - Verify the variable value
 
-- Use VSCode to save these commands in a file called MyLabFile.ps1 in the folder you created in [lab  3](../03.%20Commands%20and%20Methods/Lab.md) - `Find a command to use and create a folder called "MyLabFiles". Remember the path to it.`
+---
+
+- Find an `Out-*` command that outputs to a file
+  - Use the command to output the value of `$MyName` to the `MyLabFile.csv` file created in [Lab  3](../03.%20Commands%20and%20Methods/Lab.md) **without adding a newline**
+  - Use the command to append a comma `","` to the same file, again **without adding a newline**
+  - Use the command to append the value of `$MyAge`, **this time adding a newline**
+
+- Use VSCode to save these commands to the PowerShell script file called `MyLabFile.ps1` in the folder created in [Lab  3](../03.%20Commands%20and%20Methods/Lab.md)

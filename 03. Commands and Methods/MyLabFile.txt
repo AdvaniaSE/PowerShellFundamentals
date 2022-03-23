@@ -1,1 +1,1 @@
-Hello powershell user! I hope you enjoy this class.
+Hello PowerShell user! I hope you enjoy this class.
