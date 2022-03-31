@@ -1,24 +1,22 @@
 # Lab 08. Conditions & Loops
 
-- Get the contents of the csv file created in [lab 6](../06.%20Text%20and%20Files/Lab.md), convert it from csv to a powershell object, and store in variable `$MyUserList`
+- Get the content of the `MyLabFile.csv` file created in [Lab 6](../06.%20Text%20and%20Files/Lab.md), convert it from CSV to a list of objects in PowerShell, and store it in variable `$MyUserList`
 
-- Get all users who has an even age, and output only the name and age of those users using a `foreach` loop
+- Using a `foreach` loop (not `ForEach-Object`), get only the name and age of users who are between 50 and 70 years old
 
-- Get all users whos name starts witha vowel (AOUEIY), and output name of those users using a `while` loop
+- Use a `while` loop with a condition to only loop until the first user with the color `Red` is found
 
-- Create a `switch` of all the users in the `$MyUserList` list and based on the color, output:
-  - Yellow = "\<Name> is living in a \<color> submarine"
-  - Purple = "\<Name> wants to see you cry in the \<color> rain"
-  - Pink = "\<Name> is building a wall"
-  - Black = "\<Name> is painting a door"
-  - Green = "\<Name> is an american idiot"
+- Pick a single user from `$MyUserList` and store it in a variable called `$MyUser`
+- Create a `switch` and output the following based on the color of `$MyUser`
+  - Yellow = "\<Name> is living in a \<Color> submarine."
+  - Purple = "\<Name> wants to see you cry in the \<Color> rain."
+  - Pink = "\<Name> is building a wall."
+  - Black = "\<Name> is painting a door."
+  - Green = "\<Name> went on a holiday."
   - Blue = "\<Name> has a full tank of gas, half a pack of cigarettes, it's dark and he's wearing sunglasses."
-  - Red = "\<Name> wants to give it away now"
+  - Red = "\<Name> wants to give it away now."
 
-- Add functionality to the switch statement
-  - Change the input to only get five random members of the $MyUserList list
-  - Add a default value that outputs "\<Name> needs to start a band"
-  - Verify that your user ends up in the correct switch match. Edit the match statement if needed.
-  - Make sure you break out of the loop as soon as it finds a match.
+- Adapt the switch statement to work on the entire list of users instead of just one user
+- Add a default case that outputs "\<Name> needs to start a band", and remove one of the cases in the `switch` statement to verify that some users now need to start bands  
 
-- Use VSCode to save these commands in a file called MyLabFile.ps1 in the folder you created in [lab  3](../03.%20Commands%20and%20Methods/Lab.md) - `Find a command to use and create a folder called "MyLabFiles". Remember the path to it.`
+- Use VSCode to save these commands to the PowerShell script file called `MyLabFile.ps1` in the folder created in [Lab 3](../03.%20Commands%20and%20Methods/Lab.md)
