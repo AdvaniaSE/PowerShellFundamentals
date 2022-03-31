@@ -4,7 +4,7 @@
 
 In this folder you have a file called "MyLabFile.txt".
 
-- In PowerShell, open this file with notepad (or your favourite text editor)
+- In PowerShell, open this file with notepad (or your favorite text editor)
 - Find the process id of the opened text editor
 - Find a command to stop a process using PowerShell
 - Stop the opened text editor in PowerShell using the process id

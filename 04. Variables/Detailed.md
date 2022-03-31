@@ -44,46 +44,46 @@ Get-Variable -Name Today
 Get-Variable -Name Today | Get-Member
 ```
 
-- Create an array of colours, containing at least three different ones
+- Create an array of colors, containing at least three different ones
 
 ```PowerShell
-$MyColourArray = @('red','green','blue')
-# Create another colour in a new variable called $MyColour and add it to $MyColourArray
-$MyColour = 'yellow'
-$MyColourArray += $MyColour
+$MyColorArray = @('red','green','blue')
+# Create another color in a new variable called $MyColor and add it to $MyColorArray
+$MyColor = 'yellow'
+$MyColorArray += $MyColor
 
-# Pick one of the colours and find it in the array
+# Pick one of the colors and find it in the array
 # Arrays start at 0
-$MyColourArray[0]
+$MyColorArray[0]
 # > red
 ```
 
-- Try the same with a hashtable of three fruits with their colours as values
+- Try the same with a hashtable of three fruits with their colors as values
 
 ```PowerShell
 # Hashtables have unique keys with corresponding values
-# Create a hashtable with fruits as keys and their colours as values
-$MyColourHashtable = @{
+# Create a hashtable with fruits as keys and their colors as values
+$MyColorHashtable = @{
     'pear' = 'green'
     'apple' = 'red'
     'orange' = 'orange'
 }
 
-# Find a way to add another fruit (and its colour) to the hashtable
-# $MyColour is set to 'yellow' since before
-$MyColourHashtable.Add('banana', $MyColour)
+# Find a way to add another fruit (and its color) to the hashtable
+# $MyColor is set to 'yellow' since before
+$MyColorHashtable.Add('banana', $MyColor)
 
-# Pick one of the fruits and find its colour
-$MyColourHashtable['banana']
+# Pick one of the fruits and find its color
+$MyColorHashtable['banana']
 # > yellow
 
 # Adding another item with a non-unique key will result in an error
 # In this case 'apple' already exists in the hashtable
-$MyColourHashtable.Add('apple','green')
+$MyColorHashtable.Add('apple','green')
 # "Item has already been added. Key in dictionary: 'apple'  Key being added: 'apple'"
 
 # Hashtables are not ordered by default, so output may be scrambled
-$MyColourHashtable
+$MyColorHashtable
 # > Name      Value
 # > ----      -----
 # > apple     red

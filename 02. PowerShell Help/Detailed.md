@@ -1,6 +1,6 @@
 # Lab 02. Detailed - PowerShell Help
 
-**In order to be able to update all available help files, for all your modules, you need to start your powershell console as Administrator.**
+**In order to be able to update all available help files, for all your modules, you need to start your PowerShell console as Administrator.**
 
 You can find all commands related to help in PowerShell by running the command
 

@@ -1,16 +1,16 @@
 # Lab 07. Pipelines
 
-- Get the contents of the csv file created in [lab 6](../06.%20Text%20and%20Files/Lab.md), convert it from csv to a powershell object, and store in variable `$MyUserData`
+- Get the content of the `MyLabFile.csv` file created in [Lab 6](../06.%20Text%20and%20Files/Lab.md), convert it from CSV to a list of objects in PowerShell, and store it in variable `$MyUserList`
 
-- Use `Out-Gridview` fo search, filter, and output all users with colour "pink", and store them in the variable `$Floyd`
-  - Sort the members of `$Floyd` in order of their Id number
+- Use the command `Out-GridView` to search, filter, and output all users with the color `Pink`, and store them in the variable `$Floyd`
+  - Sort the members of `$Floyd` in order of their Id
 
-- Find how many users in the `$MyUserData` variable are 76 years or older.
+- Find how many users in the `$MyUserList` variable are 76 years or older.
 
-- Group the contents of `$MyUserData` as a hashtable and store in variable `$MyColourHash`
-  - find how many different colours there are.
-  - Find which users share the same colour as you by expanding that colour.
+- Group `$MyUserList` by color as a hashtable and store in variable `$MyColorHash`
+  - Find how many different colors there are in the hashtable
+  - Find which users share the color `Blue` by expanding that color
 
-- Find all users with a Id above `22000` and colour `yellow`, and sort them by age.
+- Find all users with an Id above `22000` and the color `Yellow`, and sort them by age.
 
-- Use VSCode to save these commands in a file called MyLabFile.ps1 in the folder you created in [lab  3](../03.%20Commands%20and%20Methods/Lab.md) - `Find a command to use and create a folder called "MyLabFiles". Remember the path to it.`
+- Use VSCode to save these commands to the PowerShell script file called `MyLabFile.ps1` in the folder created in [Lab 3](../03.%20Commands%20and%20Methods/Lab.md)

@@ -44,7 +44,7 @@ $NewCSV = $NewCSV -replace '§',"`n"
 - Create a string variable called `$Me` with a text like the file created in [Lab 05](../05.%20Input%20%26%20Output/Detailed.md), a comma-separated text, by combining variables in order:
   - Your name (example `$MyName` in [Lab 05](../05.%20Input%20%26%20Output/Detailed.md))
   - Your age (example `$MyAge` in [Lab 05](../05.%20Input%20%26%20Output/Detailed.md))
-  - A colour (example `$MyColour` in [Lab 04](../04.%20Variables/Detailed.md))
+  - A color (example `$MyColor` in [Lab 04](../04.%20Variables/Detailed.md))
   - A number randomly generated using a command
 
 ```PowerShell
@@ -52,23 +52,23 @@ $NewCSV = $NewCSV -replace '§',"`n"
 $MyRandomNumber = Get-Random
 
 # Using the variables in a double-quoted string
-$Me = "$MyName,$MyAge,$MyColour,$MyRandomNumber"
+$Me = "$MyName,$MyAge,$MyColor,$MyRandomNumber"
 
 $Me
 # > Björn Sundling,42,red,1472130954
 
 # There are several ways to combine strings
 # Adding strings together
-$Me = $MyName + ',' + $MyAge + ',' + $MyColour + ',' + $MyRandomNumber
+$Me = $MyName + ',' + $MyAge + ',' + $MyColor + ',' + $MyRandomNumber
 
 # Using the -join operator
-$Me = $MyName,$MyAge,$MyColour,$MyRandomNumber -join ','
+$Me = $MyName,$MyAge,$MyColor,$MyRandomNumber -join ','
 
 # Joining a list of strings using Join-String (PowerShell 7+)
-$Me = $MyName,$MyAge,$MyColour,$MyRandomNumber | Join-String -Separator ','
+$Me = $MyName,$MyAge,$MyColor,$MyRandomNumber | Join-String -Separator ','
 
 ## Using the string format -f operator
-$Me = '{0},{1},{2},{3}' -f $MyName,$MyAge,$MyColour,$MyRandomNumber
+$Me = '{0},{1},{2},{3}' -f $MyName,$MyAge,$MyColor,$MyRandomNumber
 ```
 
 - Add your `$Me` string to the `$NewCSV` variable
@@ -85,7 +85,7 @@ Set-Content -Path <path/to/MyLabFile.csv> -Value $NewCSV
 $NewCSV | Out-File -FilePath <path/to/MyLabFile.csv>
 ```
 
-- Read or import the new content of the `MyLabFile.csv` file in a way that converts it from a string to an object, and store it in variable `$MyUserList`
+- Read or import the new content of the `MyLabFile.csv` file in a way that converts it from a string to an object, and store it in a variable called `$MyUserList`
 
 ```PowerShell
 # Piping the content to ConvertFrom-Csv converts the comma-separated text to a list of objects
@@ -95,7 +95,7 @@ $MyUserList = Get-Content <path/to/MyLabFile.csv> | ConvertFrom-Csv
 $MyUserList = Import-Csv <path/to/MyLabFile.csv>
 
 $MyUserList
-# > Name            Age Colour Id
+# > Name            Age Color Id
 # > ----            --- ------ --
 # > John Lennon     81  Yellow 262327777
 # > Paul McCartney  79  Yellow 31654
@@ -115,7 +115,7 @@ $MyUserList
 # > Emanuel Palm    28  green  1436090893
 ```
 
-- Use VSCode to save these commands to the PowerShell script file called `MyLabFile.ps1` in the folder created in [Lab 3](../03.%20Commands%20and%20Methods/Lab.md)
+- Use VSCode to save these commands to the PowerShell script file called `MyLabFile.ps1` in the folder created in [Lab 3](../03.%20Commands%20and%20Methods/Detailed.md)
 
 ---
 

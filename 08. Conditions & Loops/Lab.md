@@ -6,9 +6,9 @@
 
 - Get all users whos name starts witha vowel (AOUEIY), and output name of those users using a `while` loop
 
-- Create a `switch` of all the users in the `$MyUserData` list and based on the colour, output:
-  - Yellow = "\<Name> is living in a \<colour> submarine"
-  - Purple = "\<Name> wants to see you cry in the \<colour> rain"
+- Create a `switch` of all the users in the `$MyUserData` list and based on the color, output:
+  - Yellow = "\<Name> is living in a \<color> submarine"
+  - Purple = "\<Name> wants to see you cry in the \<color> rain"
   - Pink = "\<Name> is building a wall"
   - Black = "\<Name> is painting a door"
   - Green = "\<Name> is an american idiot"

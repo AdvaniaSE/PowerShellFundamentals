@@ -8,7 +8,7 @@ Get-Command
 
 ---
 
-- Open this file using notepad (or your favourite text editor)
+- Open this file using notepad (or your favorite text editor)
 
 ```PowerShell
 # First go to the folder where you have the lab files downloaded

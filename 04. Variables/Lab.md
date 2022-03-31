@@ -12,10 +12,10 @@
 
 ---
 
-- Create an array of colours called `$MyColourArray`, containing at least three different ones
-  - Create another colour in a new variable called `$MyColour` and add it to `$MyColourArray`
-  - Pick one of the colours and find it in the `$MyColourArray`
-- Try creating a hashtable called `$MyColourHashtable` of three fruits with their colours as values
+- Create an array of colors called `$MyColorArray`, containing at least three different ones
+  - Create another color in a new variable called `$MyColor` and add it to `$MyColorArray`
+  - Pick one of the colors and find it in the `$MyColorArray`
+- Try creating a hashtable called `$MyColorHashtable` of three fruits with their colors as values
 
 ---
 

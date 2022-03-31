@@ -35,17 +35,17 @@ while ($i -le ($MyUserData.Count -1)) {
 }
 ```
 
-- Create a `switch` of all the users in the `$MyUserData` list and based on the colour, output:
+- Create a `switch` of all the users in the `$MyUserData` list and based on the color, output:
 
 ```PowerShell
 Switch ($MyUserData) {
-  {$_.Colour -eq "Yellow"} {Write-Output "$($_.Name) is living in a $($_.Colour) submarine"}
-  {$_.Colour -eq "Purple"} {Write-Output "$($_.Name) wants to see you cry in the $($_.Colour) rain"}
-  {$_.Colour -eq "Pink"} {Write-Output "$($_.Name) is building a wall"}
-  {$_.Colour -eq "Black"} {Write-Output "$($_.Name) is painting a door"}
-  {$_.Colour -eq "Green"} {Write-Output "$($_.Name) is an american idiot"}
-  {$_.Colour -eq "Blue"} {Write-Output "$($_.Name) has a full tank of gas, half a pack of cigarettes, it's dark and he's wearing sunglasses."}
-  {$_.Colour -eq "Red"} {Write-Output "$($_.Name) wants to give it away now"}
+  {$_.Color -eq "Yellow"} {Write-Output "$($_.Name) is living in a $($_.Color) submarine"}
+  {$_.Color -eq "Purple"} {Write-Output "$($_.Name) wants to see you cry in the $($_.Color) rain"}
+  {$_.Color -eq "Pink"} {Write-Output "$($_.Name) is building a wall"}
+  {$_.Color -eq "Black"} {Write-Output "$($_.Name) is painting a door"}
+  {$_.Color -eq "Green"} {Write-Output "$($_.Name) is an american idiot"}
+  {$_.Color -eq "Blue"} {Write-Output "$($_.Name) has a full tank of gas, half a pack of cigarettes, it's dark and he's wearing sunglasses."}
+  {$_.Color -eq "Red"} {Write-Output "$($_.Name) wants to give it away now"}
 }
 ```
 
@@ -59,7 +59,7 @@ Switch ($MyUserData | Get-Random -Count 5) {
 Default {Write-Output "$($_.Name) needs to start a band!"}
 # Verify that your user ends up in the correct switch match. Edit the match statement if needed.
 $MyName = 'Björn Sundling'
-{$_.Colour -eq "Yellow" -and $_.Name -ne $MyName}
+{$_.Color -eq "Yellow" -and $_.Name -ne $MyName}
 # Make sure you break out of the loop as soon as it finds a match.
 ## Using the break keyword here would cause the entire switch run to end. We only want to end the current comparison, so instead we use the Continue keyword
 {Write-Output "$($_.Name) is building a wall" ; Continue}
@@ -70,13 +70,13 @@ Result
 ```PowerShell
 $MyName = 'Björn Sundling'
 Switch ($MyUserData | Get-Random -Count 5) {
-  {$_.Colour -eq "Yellow" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) is living in a $($_.Colour) submarine" ; Continue}
-  {$_.Colour -eq "Purple" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) wants to see you cry in the $($_.Colour) rain" ; Continue}
-  {$_.Colour -eq "Pink" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) is building a wall" ; Continue}
-  {$_.Colour -eq "Black" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) is painting a door" ; Continue}
-  {$_.Colour -eq "Green" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) is an american idiot" ; Continue}
-  {$_.Colour -eq "Blue" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) has a full tank of gas, half a pack of cigarettes, it's dark and he's wearing sunglasses." ; Continue}
-  {$_.Colour -eq "Red" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) wants to give it away now" ; Continue}
+  {$_.Color -eq "Yellow" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) is living in a $($_.Color) submarine" ; Continue}
+  {$_.Color -eq "Purple" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) wants to see you cry in the $($_.Color) rain" ; Continue}
+  {$_.Color -eq "Pink" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) is building a wall" ; Continue}
+  {$_.Color -eq "Black" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) is painting a door" ; Continue}
+  {$_.Color -eq "Green" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) is an american idiot" ; Continue}
+  {$_.Color -eq "Blue" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) has a full tank of gas, half a pack of cigarettes, it's dark and he's wearing sunglasses." ; Continue}
+  {$_.Color -eq "Red" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) wants to give it away now" ; Continue}
   Default {Write-Output "$($_.Name) needs to start a band!"}
 }
 ```
