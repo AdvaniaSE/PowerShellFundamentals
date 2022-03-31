@@ -1,74 +1,99 @@
 # Lab 06. Text
 
-- In the folder "LabFiles" there are a number of files. One of them contains the string "purple". Using the `Select-String` Command, find this file.
+- In the folder "LabFiles" there are a number of files. One of them contains the string "purple". Using the `Select-String` command, find this file
+  - *Info*: `Select-String` accepts RegEx! If your search doesn't return the expected result you might have accidently encountered a RegEx pattern
 
 ```PowerShell
-Get-ChildItem -Path .\LabFiles\ -Recurse | Select-String -Pattern 'purple'
+Get-ChildItem -Path .\LabFiles | Select-String -Pattern 'purple'
 # > LabFiles\BDTHDIHJZT.txt:1:<cut for brevity>
-
-# Remember: Select-String accepts regex. If your search doesn't return the expected result you might have accidently encountered a regex pattern
 ```
 
-- Read the contents of the found file and store it in a variable `$NewCSV`
+- Read the content of the found file and store it in a variable `$NewCSV`
 
 ```PowerShell
-## The *Content commands are great to use when reading and writing files. To find them, run the command
+# The *-Content commands are great to use when reading from and writing to files
 Get-Command -Noun Content
 
+# Use the file path found before
 $NewCSV = Get-Content .\LabFiles\BDTHDIHJZT.txt
 
-# Using an operator, remove any leading and trailing whitespace characters from the string
-## In powershell you can re-use a variable by assigning it to itself.
-## The Trim() methods with no parameters removes whitespace characters (space and tab)
+# Using a string method, trim any leading and trailing whitespace characters from the text
+## In powershell you can overwrite a variable by assigning it to itself.
+## Using the Trim* methods without parameters removes whitespace characters (spaces and tabs) and outputs the result, so we need to save it to the variable
 $NewCSV = $NewCSV.Trim()
 
-# Using a string method or an operator, remove trailing 'N' characters.
-## Method - Accepts zero, one, or a list of characters to remove.
-$NewCSV = $NewCSV.TrimEnd('N')
-## Operator - Accepts regex: 
-## 'N' - Character 'N'
+# Using a string method or an operator, remove trailing 'M' characters
+## Method - Accepts zero, one, or a list of characters to remove
+$NewCSV = $NewCSV.TrimEnd('M')
+
+# Operator - Accepts regex: 
+## M - Character M
 ## * - Quantifier: Matches previous character zero or more times
 ## $ - End of line
-$NewCSV = $NewCSV -Replace 'N*$',''
+## '' - Replaces with empty string
+$NewCSV = $NewCSV -replace 'N*$',''
 
-# Replace the character "§" with a newline character.
-## The PowerShell escape character is a backtick "`". We can use this for many different find and replace tokens, such as tab "`t" and newline "`n".
-## Note: Since we need to expand the escape sequence we need to use double quotes. Using single quotes will cause it to be replaced by the literal characters `n. 
+# Replace the character "§" with a newline character
+## The PowerShell escape character is a backtick "`". We can use this for special characters in text, such as the tab "`t" or newline "`n" characters
+## Note: We need to use double quotes to be able to use the special characters, using single quotes will interpret it as the literal characters `n
 $NewCSV = $NewCSV.Replace('§',"`n")
-# Or using operator
+# Or using the -replace operator
 $NewCSV = $NewCSV -replace '§',"`n"
 ```
 
-- Using string interpolation, recreate the "csv" from lab 5, and add a colour, and a random number, and store it in a variable `$Me`
+- Create a string variable called `$Me` with a text like the file created in [Lab 05](../05.%20Input%20%26%20Output/Detailed.md), a comma-separated text, by combining variables in order:
+  - Your name (example `$MyName` in [Lab 05](../05.%20Input%20%26%20Output/Detailed.md))
+  - Your age (example `$MyAge` in [Lab 05](../05.%20Input%20%26%20Output/Detailed.md))
+  - A colour (example `$MyColour` in [Lab 04](../04.%20Variables/Detailed.md))
+  - A number randomly generated using a command
 
 ```PowerShell
-$Me = "$MyName;$MyAge;$($MyColours[0]);$(Get-Random)"
+# Get a random number using Get-Random
+$MyRandomNumber = Get-Random
+
+# Using the variables in a double-quoted string
+$Me = "$MyName,$MyAge,$MyColour,$MyRandomNumber"
+
 $Me
-# > Björn Sundling;42;Red;1472130954
-## Or
-$Me = '{0};{1};{2};{3}' -f 'Emanuel Palm', 28, $MyColours[1], (Get-Random)
-$Me
-# > Emanuel Palm;28;green;1436090893
+# > Björn Sundling,42,red,1472130954
+
+# There are several ways to combine strings
+# Adding strings together
+$Me = $MyName + ',' + $MyAge + ',' + $MyColour + ',' + $MyRandomNumber
+
+# Using the -join operator
+$Me = $MyName,$MyAge,$MyColour,$MyRandomNumber -join ','
+
+# Joining a list of strings using Join-String (PowerShell 7+)
+$Me = $MyName,$MyAge,$MyColour,$MyRandomNumber | Join-String -Separator ','
+
+## Using the string format -f operator
+$Me = '{0},{1},{2},{3}' -f $MyName,$MyAge,$MyColour,$MyRandomNumber
 ```
 
-- Add your user data to the `$NewCSV` variable and output it to the file MyLabFile.csv created in [lab 3](../03.%20Commands%20and%20Methods/Lab.md), replace all previous contents of the file.  
+- Add your `$Me` string to the `$NewCSV` variable
+- Output the `$NewCSV` variable to the file `MyLabFile.csv` created in [Lab 3](../03.%20Commands%20and%20Methods/Detailed.md), replacing any previous content in the file
 
 ```PowerShell
 # Add yourself to the list
 $NewCSV += $Me
 
-# Output it to the file, overwriting previous content
+# Output it to the file using Set-Content, overwriting previous content
 Set-Content -Path <path/to/MyLabFile.csv> -Value $NewCSV
+
 # Or using Out-File
 $NewCSV | Out-File -FilePath <path/to/MyLabFile.csv>
 ```
 
-- Read the new contents of the MyLabFile.csv file, convert the contents of this file from CSV to an object, and store it in variable `$MyUserList`
+- Read or import the new content of the `MyLabFile.csv` file in a way that converts it from a string to an object, and store it in variable `$MyUserList`
 
 ```PowerShell
-## Again we use the content commands to get the file content.
-## ConvertFrom-CSV Defaults to using comma "," as delimiter, but swedish standards is semicolon ";", so we need to specify which character to use.
-$MyUserList = Get-Content <path/to/MyLabFile.csv> | ConvertFrom-Csv -Delimiter ';'
+# Piping the content to ConvertFrom-Csv converts the comma-separated text to a list of objects
+$MyUserList = Get-Content <path/to/MyLabFile.csv> | ConvertFrom-Csv
+
+# We can also use Import-Csv
+$MyUserList = Import-Csv <path/to/MyLabFile.csv>
+
 $MyUserList
 # > Name            Age Colour Id
 # > ----            --- ------ --
@@ -90,7 +115,7 @@ $MyUserList
 # > Emanuel Palm    28  green  1436090893
 ```
 
-- Use VSCode to save these commands in a file called MyLabFile.ps1 in the folder you created in [lab  3](../03.%20Commands%20and%20Methods/Lab.md) - `Find a command to use and create a folder called "MyLabFiles". Remember the path to it.`
+- Use VSCode to save these commands to the PowerShell script file called `MyLabFile.ps1` in the folder created in [Lab 3](../03.%20Commands%20and%20Methods/Lab.md)
 
 ---
 
@@ -98,14 +123,16 @@ $MyUserList
 
 ```PowerShell
 Get-Help about_Quoting_Rules
-Get-Help about_comparison_operators
+Get-Help about_Comparison_Operators
 Get-Help about_Regular_Expressions
 ```
 
-Regex:
+RegEx:
 [Quick Reference](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference)
 [regex101.com](https://regex101.com/)
 
+```PowerShell
+Get-Help about_Core_Commands
 Get-Help about_Providers
 Get-Help about_*Provider
-Get-Help about_Core_Commands
+```
