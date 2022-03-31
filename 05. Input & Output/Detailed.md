@@ -87,7 +87,7 @@ Out-File -FilePath $Path -InputObject ',' -NoNewline -Append
 $MyAge | Out-File -FilePath $Path -Append
 ```
 
-- Use VSCode to save these commands to the PowerShell script file called `MyLabFile.ps1` in the folder created in [Lab  3](../03.%20Commands%20and%20Methods/Lab.md)
+- Use VSCode to save these commands to the PowerShell script file called `MyLabFile.ps1` in the folder created in [Lab 3](../03.%20Commands%20and%20Methods/Lab.md)
 
 ---
 

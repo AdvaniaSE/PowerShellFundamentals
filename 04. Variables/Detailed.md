@@ -44,14 +44,15 @@ Get-Variable -Name Today
 Get-Variable -Name Today | Get-Member
 ```
 
-- Create a list of colours, containing at least three different ones
+- Create an array of colours, containing at least three different ones
 
 ```PowerShell
 $MyColourArray = @('red','green','blue')
-# Find a way to add another colour to the list
-$MyColourArray += 'yellow'
+# Create another colour in a new variable called $MyColour and add it to $MyColourArray
+$MyColour = 'yellow'
+$MyColourArray += $MyColour
 
-# Pick one of the colours and find it in the list
+# Pick one of the colours and find it in the array
 # Arrays start at 0
 $MyColourArray[0]
 # > red
@@ -63,22 +64,25 @@ $MyColourArray[0]
 # Hashtables have unique keys with corresponding values
 # Create a hashtable with fruits as keys and their colours as values
 $MyColourHashtable = @{
-    'banana' = 'yellow'
+    'pear' = 'green'
     'apple' = 'red'
     'orange' = 'orange'
 }
 
 # Find a way to add another fruit (and its colour) to the hashtable
-$MyColourHashtable.Add('pear','green')
+# $MyColour is set to 'yellow' since before
+$MyColourHashtable.Add('banana', $MyColour)
 
 # Pick one of the fruits and find its colour
 $MyColourHashtable['banana']
 # > yellow
 
 # Adding another item with a non-unique key will result in an error
+# In this case 'apple' already exists in the hashtable
 $MyColourHashtable.Add('apple','green')
 # "Item has already been added. Key in dictionary: 'apple'  Key being added: 'apple'"
 
+# Hashtables are not ordered by default, so output may be scrambled
 $MyColourHashtable
 # > Name      Value
 # > ----      -----
