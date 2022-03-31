@@ -18,24 +18,24 @@ Get-Command -Noun Content
 $NewCSV = Get-Content .\LabFiles\BDTHDIHJZT.txt
 
 # Using a string method, trim any leading and trailing whitespace characters from the text
-## In powershell you can overwrite a variable by assigning it to itself.
-## Using the Trim* methods without parameters removes whitespace characters (spaces and tabs) and outputs the result, so we need to save it to the variable
+# In powershell you can overwrite a variable by assigning it to itself.
+# Using the Trim* methods without parameters removes whitespace characters (spaces and tabs) and outputs the result, so we need to save it to the variable
 $NewCSV = $NewCSV.Trim()
 
 # Using a string method or an operator, remove trailing 'M' characters
-## Method - Accepts zero, one, or a list of characters to remove
+# Method - Accepts zero, one, or a list of characters to remove
 $NewCSV = $NewCSV.TrimEnd('M')
 
 # Operator - Accepts regex: 
-## M - Character M
-## * - Quantifier: Matches previous character zero or more times
-## $ - End of line
-## '' - Replaces with empty string
+# M - Character M
+# * - Quantifier: Matches previous character zero or more times
+# $ - End of line
+# '' - Replaces with empty string
 $NewCSV = $NewCSV -replace 'N*$',''
 
 # Replace the character "§" with a newline character
-## The PowerShell escape character is a backtick "`". We can use this for special characters in text, such as the tab "`t" or newline "`n" characters
-## Note: We need to use double quotes to be able to use the special characters, using single quotes will interpret it as the literal characters `n
+# The PowerShell escape character is a backtick "`". We can use this for special characters in text, such as the tab "`t" or newline "`n" characters
+# Note: We need to use double quotes to be able to use the special characters, using single quotes will interpret it as the literal characters `n
 $NewCSV = $NewCSV.Replace('§',"`n")
 # Or using the -replace operator
 $NewCSV = $NewCSV -replace '§',"`n"
@@ -67,7 +67,7 @@ $Me = $MyName,$MyAge,$MyColor,$MyRandomNumber -join ','
 # Joining a list of strings using Join-String (PowerShell 7+)
 $Me = $MyName,$MyAge,$MyColor,$MyRandomNumber | Join-String -Separator ','
 
-## Using the string format -f operator
+# Using the string format -f operator
 $Me = '{0},{1},{2},{3}' -f $MyName,$MyAge,$MyColor,$MyRandomNumber
 ```
 

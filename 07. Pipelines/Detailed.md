@@ -1,29 +1,30 @@
 # Lab 07. Pipelines
 
-- Get the contents of the csv file created in [lab 6](../06.%20Text%20and%20Files/Lab.md), convert it from csv to a powershell object, and store in variable `$MyUserData`
+- Get the content of the `MyLabFile.csv` file created in [Lab 6](../06.%20Text%20and%20Files/Lab.md), convert it from CSV to a list of objects in PowerShell, and store it in variable `$MyUserList`
 
 ```PowerShell
-$MyUserData = Get-Content -Path <path/to/MyLabFile.csv> | ConvertFrom-Csv -Delimiter ';'
+$MyUserList = Import-Csv -Path <path/to/MyLabFile.csv>
 ```
 
-- Use `Out-Gridview` fo search, filter, and output all users with color "pink", and store them in the variable `$Floyd`
+- Use the command `Out-GridView` to search, filter, and output all users with the color `Pink`, and store them in the variable `$Floyd`
 
 ```PowerShell
-## The -Title parameter is not required, but makes it easier to know what you're looking for.
-$Floyd = $MyUserData | Out-GridView -Title 'Animals' -OutputMode Multiple 
+# The -Title parameter is not required, but makes it easier to know what you're looking for.
+$Floyd = $MyUserList | Out-GridView -Title 'Animals' -OutputMode Multiple 
 
-# Sort the members of $Floyd in order of their Id number
+# Sort the members of $Floyd in order of their Id
 $Floyd | Sort-Object -Property Id
 # > Name           Age Color Id
-# > ----           --- ------ --
-# > Nick Mason     78  Pink   1130
-# > Roger Waters   78  Pink   20122335
-# > David Gilmour  76  Pink   210865668
-# > Richard Wright 78  Pink   3665770
-# > Syd Barrett    76  Pink   72025
+# > ----           --- ----- --
+# > Nick Mason     78  Pink  1130
+# > Roger Waters   78  Pink  20122335
+# > David Gilmour  76  Pink  210865668
+# > Richard Wright 78  Pink  3665770
+# > Syd Barrett    76  Pink  72025
 
-## If powerShell interprets a value "wrong", for example Id is here a string, and sorted wrong, we can force it to be interpreted as int by using explicit typecasting
-$Floyd | Sort-Object {[int]$_.Id}
+# PowerShell is interpreting the Id as a string, which sorts it incorrectly
+# To fix this we can explicitly cast the Id to an integer which will sort it as expected
+$Floyd | Sort-Object { [int]$_.Id }
 # > Name           Age Color Id
 # > ----           --- ------ --
 # > Nick Mason     78  Pink   1130
@@ -33,43 +34,63 @@ $Floyd | Sort-Object {[int]$_.Id}
 # > David Gilmour  76  Pink   210865668
 ```
 
-- Find how many users in the `$MyUserData` variable are 76 years or older.
+- Find how many users in the `$MyUserList` variable are 76 years or older.
 
 ```PowerShell
-## The "math" principles allows us to run things in parenthesis to first perform the filtering, then expand the count property.
-($MyUserData | Where-Object -Property Age -ge 76).Count
+# PowerShell's operator precedence allows us to put things in parentheses to first evaluate the filtering, then expand the count property
+($MyUserList | Where-Object -Property Age -ge 76).Count
 ```
 
-- Group the contents of `$MyUserData` as a hashtable and store in variable `$MyColorHash`
+- Group `$MyUserList` by color as a hashtable and store it in a variable called `$MyUserHashtable`
+  - Find how many different colors there are in the hashtable
+  - Find which users share the color `Red` by expanding that color
 
 ```PowerShell
-$MyColorHash = $MyUserData | Group-Object -AsHashTable -Property Color
+$MyUserHashtable = $MyUserList | Group-Object -AsHashTable -Property Color
 
-# find how many different colors there are.
-## Since we grouped it by the color property we can simply see how many there are in our list.
-$MyColorHash.count
+# The Count property shows us how many different colors there are
+$MyUserHashtable.Count
 # > 7
 
-# Find which users share the same color as you by expanding that color.
-$MyColorHash['Red']
-# > Name            Age Color Id
-# > ----            --- ------ --
-# > Mick Hucknall   61  red    57624134
-# > Björn Sundling  42  Red    1472130954
+# Find which users share the color Red
+$MyUserHashtable['Red']
+# > Name                 Age Color Id
+# > ----                 --- ----- --
+# > Anthony Kiedis       59  Red   14015291
+# > Michael Flea Balzary 59  Red   94
+# > Chad Smith           60  Red   463418
+# > John Frusciante      52  Red   1293
 ```
 
-- Find all users with a Id above `22000` and color `yellow`, and sort them by age.
+- Find all users with an Id above `22000` and the color `Yellow`, and sort them by age
 
 ```PowerShell
-## You can have as many filters in one Select-Object as you need. A common way of keeping it readable is writing each statement on a new line
-## Just like with the sorting we need to explicitly cast the Id as int or we wont get all the results.
-$MyUserData | Where-Object {
-    [int]$_.id -gt 22000 -and 
-    $_.Color -eq 'yellow'
+# We can use the command Where-Object with as many filters as needed, using several lines to keep it readable
+# By putting 22000 on the left side of the comparison, PowerShell will try to compare the Id as an integer
+$MyUserList | Where-Object {
+    22000 -lt $_.Id -and 
+    $_.Color -eq 'Yellow'
 } | Sort-Object -Property Age
+# > Name            Age Color  Id
+# > ----            --- -----  --
+# > Paul McCartney  79  Yellow 31654
+# > George Harrison 79  Yellow 181121
+# > John Lennon     81  Yellow 262327777
+# > Ringo Starr     81  Yellow 242779641
+
+# If we were to reverse the Id comparison and put the Id on the left side without casting it to an integer, some users would be filtered out unintentionally because PowerShell would interpret the Id as a string
+$MyUserList | Where-Object {
+    $_.Id -gt 22000 -and 
+    $_.Color -eq 'Yellow'
+} | Sort-Object -Property Age
+# > Name           Age Color  Id
+# > ----           --- -----  --
+# > Paul McCartney 79  Yellow 31654
+# > John Lennon    81  Yellow 262327777
+# > Ringo Starr    81  Yellow 242779641
 ```
 
-- Use VSCode to save these commands in a file called MyLabFile.ps1 in the folder you created in [lab  3](../03.%20Commands%20and%20Methods/Detailed.md) - `Find a command to use and create a folder called "MyLabFiles". Remember the path to it.`
+- Use VSCode to save these commands to the PowerShell script file called `MyLabFile.ps1` in the folder created in [Lab 3](../03.%20Commands%20and%20Methods/Detailed.md)
 
 ---
 
@@ -77,4 +98,5 @@ $MyUserData | Where-Object {
 
 ```PowerShell
 Get-Help about_Pipelines
+Get-Help about_Operator_Precedence
 ```

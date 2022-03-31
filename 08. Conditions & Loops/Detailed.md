@@ -1,16 +1,16 @@
 # Lab 08. Conditions & Loops
 
-- Get the contents of the csv file created in [lab 6](../06.%20Text%20and%20Files/Lab.md), convert it from csv to a powershell object, and store in variable `$MyUserData`
+- Get the contents of the csv file created in [lab 6](../06.%20Text%20and%20Files/Lab.md), convert it from csv to a powershell object, and store in variable `$MyUserList`
 
 ```PowerShell
-$MyUserData = Get-Content -Path <path/to/MyLabFile.csv> | ConvertFrom-Csv -Delimiter ';'
+$MyUserList = Get-Content -Path <path/to/MyLabFile.csv> | ConvertFrom-Csv -Delimiter ';'
 ```
 
 - Get all users who has an even age, and output only the name and age of those users using a `foreach` loop
 
 ```PowerShell
-## Using the % modulus operator
-foreach ($User in $MyUserData) {
+# Using the % modulus operator
+foreach ($User in $MyUserList) {
     if ($User.Age % 2 -eq 0) {
         Write-Output $User | Select-Object -Property Name, Age
     }
@@ -20,25 +20,25 @@ foreach ($User in $MyUserData) {
 - Get all users whos name starts witha vowel (AOUEIY), and output name of those users using a `while` loop
 
 ```PowerShell
-## Since a list is always indexed starting at 0, but count is indexed starting at 1, we need to add a -1 to count to get the index correct.
-## We can use regex to match on many characters at the same time 
-## (^ - Start of string)
-## ([] - Match any character within this block)
-## (. - Any character at all)
-## (* - Match the previous character zero or more times)
+# Since a list is always indexed starting at 0, but count is indexed starting at 1, we need to add a -1 to count to get the index correct.
+# We can use regex to match on many characters at the same time 
+# (^ - Start of string)
+# ([] - Match any character within this block)
+# (. - Any character at all)
+# (* - Match the previous character zero or more times)
 $i = 0
-while ($i -le ($MyUserData.Count -1)) {
-    if ($MyUserData[$i].Name -Match '^[AOUEIY].*') {
-        Write-Output $MyUserData[$i].Name
+while ($i -le ($MyUserList.Count -1)) {
+    if ($MyUserList[$i].Name -Match '^[AOUEIY].*') {
+        Write-Output $MyUserList[$i].Name
     }
     $i++
 }
 ```
 
-- Create a `switch` of all the users in the `$MyUserData` list and based on the color, output:
+- Create a `switch` of all the users in the `$MyUserList` list and based on the color, output:
 
 ```PowerShell
-Switch ($MyUserData) {
+Switch ($MyUserList) {
   {$_.Color -eq "Yellow"} {Write-Output "$($_.Name) is living in a $($_.Color) submarine"}
   {$_.Color -eq "Purple"} {Write-Output "$($_.Name) wants to see you cry in the $($_.Color) rain"}
   {$_.Color -eq "Pink"} {Write-Output "$($_.Name) is building a wall"}
@@ -52,8 +52,8 @@ Switch ($MyUserData) {
 - Add functionality to the switch statement
 
 ```PowerShell
-# Change the input to only get five random members of the $MyUserData list
-Switch ($MyUserData | Get-Random -Count 5) {
+# Change the input to only get five random members of the $MyUserList list
+Switch ($MyUserList | Get-Random -Count 5) {
 
 # Add a default value that outputs "\<Name> needs to start a band"
 Default {Write-Output "$($_.Name) needs to start a band!"}
@@ -61,7 +61,7 @@ Default {Write-Output "$($_.Name) needs to start a band!"}
 $MyName = 'Björn Sundling'
 {$_.Color -eq "Yellow" -and $_.Name -ne $MyName}
 # Make sure you break out of the loop as soon as it finds a match.
-## Using the break keyword here would cause the entire switch run to end. We only want to end the current comparison, so instead we use the Continue keyword
+# Using the break keyword here would cause the entire switch run to end. We only want to end the current comparison, so instead we use the Continue keyword
 {Write-Output "$($_.Name) is building a wall" ; Continue}
 ```
 
@@ -69,7 +69,7 @@ Result
 
 ```PowerShell
 $MyName = 'Björn Sundling'
-Switch ($MyUserData | Get-Random -Count 5) {
+Switch ($MyUserList | Get-Random -Count 5) {
   {$_.Color -eq "Yellow" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) is living in a $($_.Color) submarine" ; Continue}
   {$_.Color -eq "Purple" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) wants to see you cry in the $($_.Color) rain" ; Continue}
   {$_.Color -eq "Pink" -and $_.Name -ne $MyName} {Write-Output "$($_.Name) is building a wall" ; Continue}

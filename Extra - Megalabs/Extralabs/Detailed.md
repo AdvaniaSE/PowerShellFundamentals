@@ -1,4 +1,4 @@
-## Extralab - Detailed
+# Extralabs - Detailed
 
 A collection of extra, more complex labs.
 
