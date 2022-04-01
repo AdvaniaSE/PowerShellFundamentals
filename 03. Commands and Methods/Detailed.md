@@ -88,7 +88,7 @@ Get-Item .\MyLabFile.csv | Select-Object -ExpandProperty Length
 mkdir "MyLabFiles"
 
 # But of course we want to do it the powershell way, using New-Item.
-New-Item -Path "my/path/to/labfiles" -Name 'MyLabFiles' -ItemType Directory
+New-Item -Path '<path/to/MyLabFile.csv>' -Name 'MyLabFiles' -ItemType Directory
 ```
 
 - Find a command to use, then copy the file "MyLabFile.csv" to the "MyLabFiles" folder.
@@ -98,7 +98,7 @@ New-Item -Path "my/path/to/labfiles" -Name 'MyLabFiles' -ItemType Directory
 Get-Help Copy-Item
 
 # After reading the help we know how to use the command
-Copy-Item -Path .\MyLabFile.csv -Destination 'my/path/to/labfiles'
+Copy-Item -Path .\MyLabFile.csv -Destination '<path/to/MyLabFile.csv>'
 ```
 
 ---
