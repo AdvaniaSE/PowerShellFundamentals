@@ -98,7 +98,7 @@ New-Item -Path "my/path/to/labfiles" -Name 'MyLabFiles' -ItemType Directory
 Get-Help Copy-Item
 
 # After reading the help we know how to use the command
-Copy-Item -Path .\MyLabFile.csv -Destination '..\04. Variables\'
+Copy-Item -Path .\MyLabFile.csv -Destination 'my/path/to/labfiles'
 ```
 
 ---
