@@ -1,11 +1,25 @@
-## Lab 04. Variables
+# Lab 04. Variables
 
-- Find the name of your computer in environment variables
-- Test using -ErrorVariable. Can you find a scenario where this parameter could be useful?
-- Store command results in variable and find the n:th object
-- Save today's date to a variable, and explore the type and the different properties and methods of the object
-- Find out what weekday New Year's Eve is in 2050
-    - And how many days is there until then?
-    - What type is the resulting object?
-    - What date is it 500 days after New Year's Eve 2050?
-- What is the difference of using `$var = ExampleCommand` and `ExampleCommand -outVariable var`? Read the help and describe!
+- Find your username in an environment variable
+
+---
+
+- Find a command to get today's date and store it in the variable `$Today`
+  - Examine the variable `$Today` and see how it looks
+  - Find one or more methods you can use to display the date in a different format
+  - Check the type of the variable and its properties and methods
+  - Using a command, get the variable `$Today`. Notice the output and the difference from looking at the variable directly
+
+---
+
+- Create an array of colors called `$MyColorArray`, containing at least three different ones
+  - Create another color in a new variable called `$MyColor` and add it to `$MyColorArray`
+  - Pick one of the colors and find it in the `$MyColorArray`
+- Try creating a hashtable called `$MyColorHashtable` of three fruits with their colors as values
+
+---
+
+- Create a variable and set a numerical value to it
+  - Try to set the value of the variable to a string instead
+  - Verify the value of the variable
+- Create an variable of type `[int]` and try it again

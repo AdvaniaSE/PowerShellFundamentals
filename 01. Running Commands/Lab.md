@@ -1,4 +1,4 @@
-## Lab 01. Running Commands
+# Lab 01. Running Commands
 
 Try running some different commands in the PowerShell console.
 
@@ -10,3 +10,4 @@ Some examples of commands to explore:
 - Get-ChildItem
 - Get-Command
 - Get-Verb
+- Get/Set-Location

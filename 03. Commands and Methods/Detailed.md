@@ -1,4 +1,4 @@
-## Lab 03. Detailed - Commands and Methods
+# Lab 03. Detailed - Commands and Methods
 
 - List all commands on your Computer
 
@@ -8,31 +8,17 @@ Get-Command
 
 ---
 
-- How many commands are there on your computer?
+- Open this file using notepad (or your favorite text editor)
 
 ```PowerShell
-# First, get the properties and methods available on an Array
-$MyCommands = Get-Command
+# First go to the folder where you have the lab files downloaded
+Set-Location <path\to\downloadedFiles>
 
-# Examine possible methods that can provide the amount of objects in an array
-Get-Member -InputObject $MyCommands
-
-# Call the count or length property
-$MyCommands.Count
-$MyCommands.Length
-
+# PowerShell can start programs by calling the program directly, and notepad accepts the filename as input
+notepad .\MyLabFile.txt
 ```
 
----
-
-- Start Notepad through PowerShell
-
-```PowerShell
-# Starting external programs from powershell can be done by calling the program directly
-notepad
-```
-
-- Find the process id of Notepad
+- Find the process id of the open text editor
 
 ```PowerShell
 # Find a command to get the process
@@ -41,13 +27,13 @@ Get-Command *process*
 # Explore possible parameters using Get-Help
 Get-Help Get-Process
 
-# Find the Notepad process
+# Find the Notepad process (or chosen text editor)
 Get-Process -Name Notepad
 ```
 
 *Tip:* Note the property `Id` in the output!
 
-- Find a command to stop a process
+- Find a command to stop a process using PowerShell
 
 ```PowerShell
 Get-Command *process*
@@ -63,65 +49,57 @@ Get-Command *process*
 Get-Help Stop-Process
 
 # Use the previously found Process id to stop notepad
-Stop-Process -Id # enter your process id
+Stop-Process -Id <your-process-id>
 ```
 
 ---
 
-- Start Notepad through PowerShell
+- Find a command to rename the file to "MyLabFile.csv"
 
 ```PowerShell
-notepad
+# since we know what we want to do (the "verb" of the command, Rename) we can use that to search for commands
+Get-Command -Verb "Rename"
+
+# Using Get-Help examples we can find how to use the Rename-Item command
+Get-Help Rename-Item -Examples
+
+# and finally rename the file
+Rename-Item -Path .\MyLabFile.txt -NewName "MyLabFile.csv"
 ```
 
-- What is the path to the notepad process executable?
+- Find the file size of the MyLabFile.csv
 
 ```PowerShell
-# Find the Notepad process and store it in a variable
-$MyProcess = Get-Process -Name Notepad
+# Some properties in PowerShell are named differently than expected. For example there is no such thing as "file size" on a file object, instead there is a length property
+(Get-Item .\MyLabFile.csv).Length
 
-# Examine possible methods that can provide the path
-Get-Member -InputObject $MyProcess
+# We can also use the Select-Object command
+Get-Item .\MyLabFile.csv | Select-Object -ExpandProperty Length
 
-# Call the path property
-$MyProcess.Path
+# PowerShell has a lot of mathematical expressions that you can use
+# For example we can get the file size in kilobytes using this formula
+(Get-Item .\MyLabFile.csv).Length / 1KB
 ```
 
-- What type is the process?
+- Find a command to use, then create a folder called "MyLabFiles". Remember the path to it.
 
 ```PowerShell
-# Find the Notepad process and store it in a variable
-$MyProcess = Get-Process -Name Notepad
+# In powershell we can use legacy commands as well as powershell commands. We can either create a directory the old DOS way
+mkdir "MyLabFiles"
 
-# There are two ways of finding the type of a PowerShell object. 
-# Run Get-Member, and find the top line of the output
-Get-Member -InputObject $MyProcess
-
-# Or invoke the GetType() method on an object
-$MyProcess.GetType()
+# But of course we want to do it the powershell way, using New-Item.
+New-Item -Path '<path/to/MyLabFile.csv>' -Name 'MyLabFiles' -ItemType Directory
 ```
 
-- Find a method to stop a process
+- Find a command to use, then copy the file "MyLabFile.csv" to the "MyLabFiles" folder.
 
 ```PowerShell
-# Find the Notepad process and store it in a variable
-$MyProcess = Get-Process -Name 'Notepad'
+# We know the Noun to work with (Item) and the Verb to use (Copy), so we can look at the help of the command
+Get-Help Copy-Item
 
-# Examine possible methods that can stop a process
-Get-Member -InputObject $MyProcess
+# After reading the help we know how to use the command
+Copy-Item -Path .\MyLabFile.csv -Destination '<path/to/MyLabFile.csv>'
 ```
-
-- Stop Notepad through PowerShell using the method
-
-```PowerShell
-# You can either call the kill method
-$MyProcess.Kill()
-
-# Or the CloseMainWindow method
-$MyProcess.CloseMainWindow()
-```
-
-*Tip:* While the `Close` method on a process might seem fitting, it's actually used to free resources after a process has exited.
 
 ---
 

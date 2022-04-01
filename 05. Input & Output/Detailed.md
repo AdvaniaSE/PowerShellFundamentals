@@ -1,88 +1,92 @@
-## Lab 05. Detailed - Input & Output
+# Lab 05. Input & Output
 
-- Use `Read-Host` to save your age as a number to a variable called `$Age`
+- Use `Read-Host` with a descriptive question to save your name in a variable called `$MyName`
 
-```PowerShell
-$Age = Read-Host -Prompt 'What is your age?'
+```Powershell
+$MyName = Read-Host -Prompt 'What is your name?'
+
+# Output the variable to different streams using some of the `Write-*` commands
+
+# Write-Host always writes directly to the host, regardless of preference settings
+Write-Host $MyName
+# > Björn
+
+# Write-Error writes to the error stream
+Write-Error $MyName
+# > Write-Error: Björn
+
+# Write-Information writes to the information stream, which is often hidden by default
+Write-Information $MyName
+# >
+
+# Write-Verbose writes to the verbose stream, which is often hidden by default
+Write-Verbose $MyName
+# >
+
+# Modify the preference variables of the streams to reverse the behavior, instead displaying or hiding the output
+$ErrorActionPreference = 'SilentlyContinue'
+$InformationPreference = 'Continue'
+$VerbosePreference = 'Continue'
+
+# Write-Error now hides the output
+Write-Error $MyName
+# >
+
+# Write-Information now displays the output
+Write-Information $MyName
+# > Björn
+
+# Write-Verbose now displays the output
+Write-Verbose $MyName
+# > VERBOSE: Björn
 ```
 
----
+- Create a variable of type `[int]` named `$MyAge` with the value of 0
 
-- Use `$Age` to calculate your birth year and print it to the console
+```Powershell
+[int]$MyAge = 0
 
-```PowerShell
-# First we need to have today's date in a variable
-$Today = Get-Date
+# Use Read-Host with a descriptive question to save your age as a number
+$MyAge = Read-Host -Prompt 'What is your age'
+# > What is your age: 42
 
-# We then want to remove the number of years in $Age, but as there is only an AddYears method we can simply combine it with a - to add "-n" years
-$BirthYear = $Today.AddYears(-$Age)
+# Try it again but this time as a string
+$MyAge = Read-Host -Prompt 'What is your age'
+# > What is your age: Fortytwo
+# > "Input string was not in a correct format."
 
-# To output only the year to console, use the Write-Output cmdlet, and the Year property
-Write-Output $BirthYear.Year
+# The variable will still have the number as the value
+$MyAge
+# > 42
 ```
 
----
-
-- Use `Read-Host` to save secure input using a parameter
+- Find an `Out-*` command that outputs to a file
 
 ```PowerShell
-# Use the AsSecureString parameter to prevent the variable from being human readable
-$SecureString = Read-Host -Prompt 'Secure string test' -AsSecureString
-# Input will look like this:
-# Secure string test: *********
+# Get all commands matching the filter
+Get-Command Out-*
 
-# To verify the string, try to output it to console and you will only get System.Security.SecureString
-$SecureString
+# The command Out-File redirects the default stream to a file
+# Use Get-Help to find out how to use it
+Get-Help -Name Out-File -Detailed
+
+$Path = <path/to/MyLabFile.csv>
+
+# Output $MyName to "MyLabFile.csv" created in Lab 3
+# Not specifying -Append will overwrite the contents of the file
+# Specifying -NoNewLine will create no new line after the text
+$MyName | Out-File -FilePath $Path -NoNewline
+
+# Add a comma to the same file, again without adding a newline
+# Specifying -Append will add to the file instead of overwriting it
+Out-File -FilePath $Path -InputObject ',' -NoNewline -Append
+
+# Add the value of the $MyAge variable, this time also adding a newline
+# Not specifying -NoNewLine will add a newline after the text
+$MyAge | Out-File -FilePath $Path -Append
 ```
 
-*Tip:* It's possible to convert a SecureString back to plain text in the same context as it was created in.
-
----
-
-- Run a non working command such as `Get-FakeCommand`
-
-```PowerShell
-Get-FakeCommand
-
-# Explore the error message
-Get-Error
-```
-
-- Change `$ErrorActionPreference` to "SilentlyContinue" and try again
-
-```PowerShell
-$ErrorActionPreference = "SilentlyContinue"
-Get-FakeCommand
-```
-
-- Restore the ErrorActionPreference to its default setting
-
-
-```PowerShell
-$ErrorActionPreference = "Continue"
-```
-
----
-
-- Try using both `Write-Host` and `Write-Output` and save the results to a variable
-    - What is the difference?
-    - Why does it happen?
-
-```PowerShell
-$MyVar = Write-Host 'This is from Write-Host'
-# Console will output 'This is from Write-Host'
-# The $MyVar variable is empty
-$MyVar
-
-
-$MyVar = Write-Output 'This is from Write-Output'
-# No console output
-$MyVar
-# The variable contains the data from Write-Output, 'This is from Write-Output'
-```
-
-This behaviour is because `Write-Host` outputs data to the information stream, which by default is captured by the console.
-`Write-Output` outputs its result to the output stream, which in our case above is directed to the variable.
+- Use VSCode to save these commands to the PowerShell script file called `MyLabFile.ps1` in the folder created in [Lab 3](../03.%20Commands%20and%20Methods/Detailed.md)
 
 ---
 

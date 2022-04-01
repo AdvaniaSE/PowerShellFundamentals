@@ -1,6 +1,6 @@
-## Lab 02. Detailed - PowerShell Help
+# Lab 02. Detailed - PowerShell Help
 
-**In order to be able to update all available help files, for all your modules, you need to start your powershell console as Administrator.**
+**In order to be able to update all available help files, for all your modules, you need to start your PowerShell console as Administrator.**
 
 You can find all commands related to help in PowerShell by running the command
 
@@ -16,7 +16,7 @@ Update your local help files by running the command
 Update-Help
 ```
 
-After updating your help files you can find help on all cmdlets by running the command
+After updating your help files you can find help for any command by running the command
 
 ```PowerShell
 Get-Help -Name $CommandName
@@ -26,7 +26,7 @@ Get-Help -Name $CommandName
 
 ---
 
-There is also built-in help for many of concepts in PowerShell in so-called 'about files' which you can find by running
+There is also built-in help for many of concepts in PowerShell in so-called "about-files" which you can find by running
 
 ```PowerShell
 Get-Help about_*
@@ -41,12 +41,12 @@ Get-Help about_*
 Find-Module -Name '*GraphicalTools'
 
 # After verifying that you have found the right module, you can install it
-Find-Module -Name 'Microsoft.PowerShell.GraphicalTools' | Install-Module
+Install-Module -Name 'Microsoft.PowerShell.GraphicalTools' | 
 ```
 
 ---
 
-*Tip:* In most cases you can read the latest version of the documentation online. By using the `-Online` switch parameter in the `Get-Help` cmdlet you will automaticaly open a browser with the URL to documentation.
+*Tip:* In most cases you can read the latest version of the documentation online. By using the `-Online` switch parameter in the command `Get-Help`, you will automatically open a browser with the documentation.
 
 ---
 
