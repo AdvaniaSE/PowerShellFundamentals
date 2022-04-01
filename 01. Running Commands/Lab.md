@@ -10,3 +10,4 @@ Some examples of commands to explore:
 - Get-ChildItem
 - Get-Command
 - Get-Verb
+- Get/Set-Location
