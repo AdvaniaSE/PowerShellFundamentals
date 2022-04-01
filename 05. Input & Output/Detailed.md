@@ -58,7 +58,6 @@ $MyAge = Read-Host -Prompt 'What is your age'
 # The variable will still have the number as the value
 $MyAge
 # > 42
-
 ```
 
 - Find an `Out-*` command that outputs to a file

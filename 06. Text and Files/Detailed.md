@@ -1,7 +1,7 @@
 # Lab 06. Text
 
 - In the folder "LabFiles" there are a number of files. One of them contains the string "purple". Using the `Select-String` command, find this file
-  - *Info*: `Select-String` accepts RegEx! If your search doesn't return the expected result you might have accidently encountered a RegEx pattern
+  - *Note*: `Select-String` accepts RegEx! If your search doesn't return the expected result you might have accidently encountered a RegEx pattern
 
 ```PowerShell
 Get-ChildItem -Path .\LabFiles | Select-String -Pattern 'purple'
@@ -31,7 +31,7 @@ $NewCSV = $NewCSV.TrimEnd('M')
 # * - Quantifier: Matches previous character zero or more times
 # $ - End of line
 # '' - Replaces with empty string
-$NewCSV = $NewCSV -replace 'N*$',''
+$NewCSV = $NewCSV -replace 'M*$',''
 
 # Replace the character "§" with a newline character
 # The PowerShell escape character is a backtick "`". We can use this for special characters in text, such as the tab "`t" or newline "`n" characters

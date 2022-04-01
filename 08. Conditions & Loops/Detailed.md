@@ -72,6 +72,7 @@ switch ($MyUser.Color) {
 - Adapt the switch statement to work on the entire list of users instead of just one user
 
 ```PowerShell
+# When looping over a list, comparisons are made in a scriptblock with $_ as the current item in the list
 switch ($MyUserList) {
     { $_.Color -eq 'Yellow' } { "$($_.Name) is living in a $($_.Color) submarine." }
     { $_.Color -eq 'Purple' } { "$($_.Name) wants to see you cry in the $($_.Color) rain." }
@@ -82,6 +83,8 @@ switch ($MyUserList) {
     { $_.Color -eq 'Red' } { "$($_.Name) wants to give it away now." }
 }
 ```
+
+- Add a default case that outputs "\<Name> needs to start a band", and remove one of the cases in the `switch` statement to verify that some users now need to start bands
 
 ```PowerShell
 # A user will fall into the default case if no other condition is met
