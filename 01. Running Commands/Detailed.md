@@ -19,6 +19,8 @@ Some examples of commands to explore:
 - `Get-Command`
 - `Get-Verb`
 - `Get-ComputerInfo`
+- `Set-Location`
+- `Get-Location`
 
 ---
 
@@ -26,4 +28,5 @@ Some examples of commands to explore:
 
 ```PowerShell
 Get-Help about_Parameters
+Get-Help about_Core_Commands
 ```
