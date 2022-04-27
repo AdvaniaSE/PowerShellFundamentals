@@ -99,5 +99,4 @@ $MyUserList | Where-Object {
 ```PowerShell
 Get-Help about_Pipelines
 Get-Help about_Operator_Precedence
-Get-Help about_Break
 ```
