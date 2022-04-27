@@ -29,4 +29,5 @@ Some examples of commands to explore:
 ```PowerShell
 Get-Help about_Parameters
 Get-Help about_Core_Commands
+Get-Help about_Tab_Expansion
 ```
