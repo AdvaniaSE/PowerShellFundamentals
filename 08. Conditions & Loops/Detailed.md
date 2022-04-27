@@ -113,4 +113,6 @@ Get-Help about_Foreach
 Get-Help about_Do
 Get-Help about_For
 Get-Help about_Switch
+Get-Help about_Break
+Get-Help about_Continue
 ```
