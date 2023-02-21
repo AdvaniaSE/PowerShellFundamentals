@@ -126,5 +126,5 @@ $MyNumber
 ```PowerShell
 Get-Help about_Automatic_Variables
 Get-Help about_Environment_Variables
-get-help about_Variables
+Get-Help about_Variables
 ```
