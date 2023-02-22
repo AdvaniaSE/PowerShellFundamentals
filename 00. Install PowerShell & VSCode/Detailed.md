@@ -3,7 +3,7 @@
 - **If Windows**
   - Check your currently installed Windows PowerShell version by running `$PSVersionTable` in your Windows PowerShell console
 
-- Install [PowerShell 7](https://github.com/PowerShell/PowerShell/releases/tag/v7.2.1)
+- Install [PowerShell 7](http://aka.ms/pwsh)
 
 - Install [Visual Studio Code](http://aka.ms/vscode)
   - Install PowerShell Extension for VSCode
