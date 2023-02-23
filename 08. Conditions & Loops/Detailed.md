@@ -115,4 +115,5 @@ Get-Help about_For
 Get-Help about_Switch
 Get-Help about_Break
 Get-Help about_Continue
+Get-Help about_comparison_operators
 ```
