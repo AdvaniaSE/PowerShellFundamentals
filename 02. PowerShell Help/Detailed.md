@@ -41,7 +41,7 @@ Get-Help about_*
 Find-Module -Name '*GraphicalTools'
 
 # After verifying that you have found the right module, you can install it
-Install-Module -Name 'Microsoft.PowerShell.GraphicalTools' | 
+Install-Module -Name 'Microsoft.PowerShell.GraphicalTools'
 ```
 
 ---
