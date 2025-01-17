@@ -13,12 +13,10 @@
 - Install [Git](https://git-scm.com/)
   - Make sure you check the **`Use the native Windows Secure Channel library`** during install!
 
+- Additionally for Windows, install [Windows Terminal](https://aka.ms/terminal)
+
 ---
 
 *More Reading*
 
 [PowerShell Overview](https://docs.microsoft.com/en-us/powershell/scripting/overview)
-
-[PowerShell on GitHub](https://github.com/PowerShell/PowerShell) Including all releases, pre-releases, and source code.
-
-[Cascadia Code Font](https://github.com/microsoft/cascadia-code)
