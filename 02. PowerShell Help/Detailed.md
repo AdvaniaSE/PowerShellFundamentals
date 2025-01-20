@@ -34,14 +34,14 @@ Get-Help about_*
 
 ---
 
-- If you are not using Windows, install the module `Microsoft.PowerShell.GraphicalTools`
+- If you are not using Windows, install the module `Microsoft.PowerShell.ConsoleGuiTools`
 
 ```PowerShell
 # Find the module in PSGallery, wildcards are supported
 Find-Module -Name '*GraphicalTools'
 
 # After verifying that you have found the right module, you can install it
-Install-Module -Name 'Microsoft.PowerShell.GraphicalTools'
+Install-Module -Name 'Microsoft.PowerShell.ConsoleGuiTools'
 ```
 
 ---
