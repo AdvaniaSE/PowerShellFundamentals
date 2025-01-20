@@ -38,7 +38,7 @@ Get-Help about_*
 
 ```PowerShell
 # Find the module in PSGallery, wildcards are supported
-Find-Module -Name '*GraphicalTools'
+Find-Module -Name '*ConsoleGuiTools'
 
 # After verifying that you have found the right module, you can install it
 Install-Module -Name 'Microsoft.PowerShell.ConsoleGuiTools'
