@@ -16,8 +16,8 @@
 
 ```PowerShell
 # Examples of $Me
-Björn,42,Red,1472130954
-Emanuel,28,Green,1279001390
+Björn,45,Red,1472130954
+Elias,28,Green,1279001390
 ```
 
 - Add your `$Me` string to the `$NewCSV` variable
