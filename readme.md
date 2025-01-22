@@ -21,15 +21,13 @@ The course has no prerequisites but is meant to be useful for everyone from the 
 - [PSKoans](https://github.com/vexx32/PSKoans)
 - [Community Best Practices](https://github.com/PoshCode/PowerShellPracticeAndStyle)
 - [Book: Learn PowerShell in a Month of Lunches, Linux and macOS Edition](https://www.manning.com/books/learn-powershell-in-a-month-of-lunches-linux-and-macos-edition)
-- [Microsoft Learn - Powershell](https://docs.microsoft.com/en-us/learn/paths/powershell/)
-- [Video Series: Highway to PowerShell](https://www.youtube.com/playlist?list=PLjKVCo25i0an3dVaDNNVVTzd1wuK46UHv)
+- [Microsoft Learn - PowerShell](https://docs.microsoft.com/en-us/learn/paths/powershell/)
 
 ---
 
 ## Contact
 
-- [Advania.se](https://www.advania.se/en/our-business/it-infrastructure/knowledge-factory/)
-- [Advania - Knowledge Factory @ Facebook](https://www.facebook.com/KnowledgeFactory/)
-- [Advania - Knowledge Factory @ Twitter](https://twitter.com/kfconsulting)
+- [Advania.se](https://www.advania.se/digital-innovation/revolutionera-digitalt)
+- [Advania - Knowledge Factory @ LinkedIn](https://www.linkedin.com/company/knowledge-factory_2/)
 
 ![](https://www.advania.se/library/Template/logo_o.png)
