@@ -111,8 +111,8 @@ $MyUserList
 # > Roger Waters    78  Pink   20122335
 # > Richard Wright  78  Pink   3665770
 # > Syd Barrett     76  Pink   72025
-# > Björn Sundling  42  Red    1472130954
-# > Emanuel Palm    28  green  1436090893
+# > Björn Sundling  45  Red    1472130954
+# > Elias Tångring  28  green  1436090893
 ```
 
 - Use VSCode to save these commands to the PowerShell script file called `MyLabFile.ps1` in the folder created in [Lab 3](../03.%20Commands%20and%20Methods/Detailed.md)
