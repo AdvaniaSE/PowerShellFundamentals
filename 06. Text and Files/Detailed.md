@@ -87,6 +87,9 @@ $NewCSV | Out-File -FilePath <path/to/MyLabFile.csv>
 
 - Read or import the new content of the `MyLabFile.csv` file in a way that converts it from a string to an object, and store it in a variable called `$MyUserList`
 
+
+> NOTE: The output may differ depending on your language settings and character encoding. You may need to add the -Raw parameter to the `Get-Content` CmdLet, and / or the -Delimiter parameter to the `ConvertFrom-Csv` or `Import-Csv` commands
+
 ```PowerShell
 # Piping the content to ConvertFrom-Csv converts the comma-separated text to a list of objects
 $MyUserList = Get-Content <path/to/MyLabFile.csv> | ConvertFrom-Csv
